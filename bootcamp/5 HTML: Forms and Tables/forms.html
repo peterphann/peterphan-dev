@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forms Demo</title>
+</head>
+
+<body>
+  <header>
+    <h1>Forms</h1>
+    <p><a href="../bootcamp.html">&lt; Back</a></p>
+  </header>
+
+  <hr>
+
+  <main>
+    <form action="/tacos">
+      <p>
+        <label for="username">
+          Username:
+          <input id="username" type="text" placeholder="username" name="username">
+        </label>
+
+      </p>
+
+      <p>
+        <label for="password">
+          Password:
+          <input id="password" type="password" placeholder="password" name="password">
+        </label>
+      </p>
+
+      <p>
+        <label for="color">
+          Color:
+          <input id="color" type="color" name="color">
+        </label>
+
+      </p>
+
+      <p>
+        <label for="number">
+          Number:
+          <input id="number" type="number" placeholder="enter a number" name="num" min="1" max="10">
+        </label>
+      </p>
+      <!-- This button submits the form -->
+      <button>Submit</button>
+      <!-- This button doesn't submit the form because of the type attribute -->
+      <button type="button">Regular Button</button>
+      <!-- This one also submits the form -->
+      <input type="submit" value="Click Me!">
+    </form>
+
+    <hr>
+    <!-- Does nothing because outside form -->
+    <button>Outside Form</button>
+    <h2>Hijacking Searches</h2>
+
+    <h3>Search Reddit</h3>
+    <form action="https://www.reddit.com/search">
+      <label for="reddit">
+        Reddit Search:
+        <input id="reddit" type="text" name="q">
+      </label>
+      <button>Submit</button>
+    </form>
+
+    <h3>Search Google</h3>
+    <form action="https://www.google.com/search">
+      <label for="google">
+        Google Search:
+        <input id="google" type="text" name="q">
+      </label>
+      <button>Submit</button>
+    </form>
+
+    <h3>Search Youtube</h3>
+    <form action="https://www.youtube.com/results">
+      <label for="youtube">
+        Youtube Search:
+        <input id="youtube" type="text" name="search_query">
+      </label>
+      <button>Submit</button>
+    </form>
+
+    <hr>
+
+    <h2>More Inputs</h2>
+    <form action="/birds">
+      <label for="agree">
+        <input type="checkbox" name="agree_tos" id="agree" checked>
+        I agree to the terms and conditions.
+      </label>
+
+      <section>
+        <div>
+          <label for="s">
+            S
+            <input type="radio" name="size" id="s" value="s">
+          </label>
+        </div>
+  
+        <div>
+          <label for="m">
+            M
+            <input type="radio" name="size" id="m" value="m">
+          </label>
+        </div>
+  
+        <div>
+          <label for="l">
+            L
+            <input type="radio" name="size" id="l" value="l">
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <label for="meal">
+          Please select a meal type:
+          <select name="meal" id="meal">
+            <option value="fish">Fish</option>
+            <option value="veg">Vegetarian</option>
+            <option value="steak" selected>Steak</option>
+          </select>
+        </label>
+        
+      </section>
+
+      <section>
+        <label for="cheese">
+          Amount of Cheese:
+          <input type="range" name="cheese" id="cheese" min="0" max="10" step="1" value="1">
+        </label>
+      </section>
+
+      <section>
+        <label for="requests">
+          Any special requests? <br>
+          <textarea name="requests" id="requests" cols="40" rows="10" placeholder="Type something here."></textarea>
+        </label>
+      </section>
+
+      <button>Submit</button>
+    </form>
+
+    <section>
+      <h2>Validation Demo</h2>
+
+      <form action="/dummy">
+        <div>
+          <label for="first">
+            Enter First Name:
+            <input type="text" name="first" id="first" required>
+          </label>
+        </div>
+
+        <div>
+          <label for="user">
+            Username:
+            <input type="text" name="user" id="user" minlength="5" maxlength="20" required>
+          </label>
+        </div>
+
+        <div>
+          <label for="email">
+            Email:
+            <input type="email" name="email" id="email" required>
+          </label>
+        </div>
+
+        <div>
+          <label for="phone">
+            Phone Number:
+            <input type="tel" name="phone" id="phone" required>
+          </label>
+        </div>
+
+        <button>Submit</button>
+      </form>
+
+    </section>
+  </main>
+
+</body>
+
+</html>
