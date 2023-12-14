@@ -1,0 +1,16 @@
+body {
+  background-color: #191919;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5em;
+}
+
+a {
+  color: #dbbfff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
