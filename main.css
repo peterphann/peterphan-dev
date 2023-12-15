@@ -7,7 +7,6 @@ html {
 body {
   background-color: #111111;
   color: #dbbfff;
-  overflow: hidden;
 }
 
 .header {
@@ -31,7 +30,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 95vh;
 }
 
 
