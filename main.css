@@ -74,7 +74,7 @@ main {
   transition: color 100ms ease-in-out;
 }
 
-.link:hover {
+.link:hover, .link:focus {
   cursor: pointer;
   color: #dbbfff;
 }
