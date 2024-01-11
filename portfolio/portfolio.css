@@ -4,6 +4,7 @@ body {
 
 .navbar {
   background: #1a1e21;
+  height: 70px;
 }
 
 .navbar-brand {
@@ -12,6 +13,9 @@ body {
   font-size: 2rem;
   color: #dbbfff;
   transition: color 0.1s;
+  position: absolute;
+  text-align: center;
+  margin:0 auto;
 }
 
 .navbar-brand:hover {
@@ -25,4 +29,8 @@ body {
 .nav-item a {
   font-family: "greycliff-cf", sans-serif;
   font-size: 1rem;
+}
+
+.card-title a {
+  text-decoration: none;
 }
