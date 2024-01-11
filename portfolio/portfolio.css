@@ -34,3 +34,7 @@ body {
 .card-title a {
   text-decoration: none;
 }
+
+.card {
+  width: 18rem;
+}
