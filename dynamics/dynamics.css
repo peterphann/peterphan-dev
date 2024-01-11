@@ -1,0 +1,28 @@
+body {
+  padding-top: 70px;
+}
+
+.navbar {
+  background: #1a1e21;
+}
+
+.navbar-brand {
+  font-family: "greycliff-cf", sans-serif;
+  font-weight: bold;
+  font-size: 2rem;
+  color: #dbbfff;
+  transition: color 0.1s;
+}
+
+.navbar-brand:hover {
+  color: #a38dda;
+}
+
+.navbar-brand:active {
+  color: #a38dda;
+}
+
+.nav-item a {
+  font-family: "greycliff-cf", sans-serif;
+  font-size: 1rem;
+}
