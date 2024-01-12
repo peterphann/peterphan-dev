@@ -46,7 +46,7 @@
   </nav>
 
   <div class="container mt-3">
-    <div class="alert alert-success alert-dismissible fade d-none">
+    <div class="alert alert-success alert-dismissible fade d-none" id="clipboard-alert">
       Copied to clipboard!
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
@@ -58,7 +58,7 @@
     <h1 class="display-6 d-none d-md-block text-center">Online Sequencer Dynamics Generator</h1>
     <h1 class="display-6 d-md-none text-center">O.S. Dynamics Generator</h1>
 
-    <form action="#">
+    <form onsubmit="generate(); return false;">
       <div class="row justify-content-center">
         <div class="col-10 col-md-1 mt-3 mt-md-0">
           <label for="id" class="form-label">ID</label>
@@ -149,20 +149,20 @@
           <label for="note" class="form-label">Note</label>
           <div class="input-group"> 
             <select name="note" id="note" class="form-select">
-              <option value="1">A</option>
-              <option value="2">A♯</option>
-              <option value="3">B</option>
-              <option value="4" selected>C</option>
-              <option value="5">C♯</option>
-              <option value="6">D</option>
-              <option value="7">D♯</option>
-              <option value="8">E</option>
-              <option value="9">F</option>
-              <option value="10">F♯</option>
-              <option value="11">G</option>
-              <option value="12">G♯</option>
+              <option value="A">A</option>
+              <option value="A#">A♯</option>
+              <option value="B">B</option>
+              <option value="C" selected>C</option>
+              <option value="C#">C♯</option>
+              <option value="D">D</option>
+              <option value="D#">D♯</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+              <option value="F#">F♯</option>
+              <option value="G">G</option>
+              <option value="G#">G♯</option>
             </select>
-            <input type="number" class="form-control" min="2" max="7" value="5">
+            <input id="octave" type="number" class="form-control" min="2" max="7" value="5">
           </div>
         </div>
 
@@ -271,7 +271,7 @@
 
       <button class="btn btn-outline-secondary mt-3" type="submit">Generate</button>
 
-      <button class="btn btn-outline-primary mt-3" type="button">
+      <button class="btn btn-outline-primary mt-3" type="button" onclick="copyToClipboard()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy"
           viewBox="0 0 16 16">
           <path fill-rule="evenodd"
@@ -279,7 +279,7 @@
         </svg>
       </button>
 
-      <button class="btn btn-outline-danger mt-3 text-danger" type="reset">
+      <button class="btn btn-outline-danger mt-3 text-danger" type="reset" onclick="resetButton()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
           <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
@@ -289,14 +289,16 @@
       <textarea name="result" id="result" cols="30" rows="10" class="form-control mt-3" readonly
         placeholder="Press 'Generate' to create your custom note dynamics!"></textarea>
 
-
-
     </form>
+
+    
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
+    crossorigin="anonymous">
+  </script>
+  <script src="dynamics.js"></script>
 </body>
 
 </html>
