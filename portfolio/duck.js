@@ -18,13 +18,28 @@ let num2 = 0;
 let mode = 3;
 let answer = 0;
 let numCorrect = 0;
+
+let addStats = [0, 0];
+let subStats = [0, 0];
+let multStats = [0, 0];
+
 let numWrong = 0;
 let numGuesses = 0;
+let prevAnswer = null;
+
+let successAudio = new Audio("/audio/success.wav");
+let failureAudio = new Audio("/audio/failure.wav");
+let skipAudio = new Audio("/audio/skip.wav");
 
 generateQuestion();
+updateScore();
 
 function setMessage(message) {
   document.querySelector("#message").textContent = message;
+}
+
+function setQuestion(message) { 
+  document.querySelector(".question").textContent = message;
 }
 
 function isEquals(a, b) {
@@ -35,30 +50,29 @@ function generateQuestion() {
   mode = parseInt(document.getElementById("mode").value);
   num1 = parseInt(Math.random() * (MAXIMUM - MINIMUM)) + MINIMUM;
   numGuesses = 0;
+  prevAnswer = null;
 
   document.getElementById("answer").value = "";
+  updateScore();
 
   if (mode === 3) {
-    let percentage = percentList[parseInt(Math.random() * percentList.length)];
-    answer = percentage * num1;
-    document.querySelector(".field1").textContent = `${percentage * 100}%`;
-    document.querySelector(".field2").textContent = "of";
-    document.querySelector(".field3").textContent = num1;
+    num2 = percentList[parseInt(Math.random() * percentList.length)];
+    answer = num1 * num2;
+    setQuestion(`${num2 * 100}% of ${num1} = ?`); 
   } else {
     num2 = parseInt(Math.random() * 20) + 1;
 
     let operation = mode === 1 ? "+" : "-";
     answer = mode === 1 ? num1 + num2 : num1 - num2;
 
-    document.querySelector(".field1").textContent = num1;  
-    document.querySelector(".field2").textContent = operation;  
-    document.querySelector(".field3").textContent = num2;  
+    setQuestion(`${num1} ${operation} ${num2} = ?`)
   }
 }
 
 function checkAnswer() {
   let userAnswer = parseFloat(document.getElementById("answer").value);
   if (isNaN(userAnswer)) {
+    failureAudio.play();
     setMessage("please actually enter a number idiot");
     return;
   }
@@ -76,21 +90,45 @@ function checkAnswer() {
       }
     }
     
+    successAudio.play();
     generateQuestion();
   } else {
     numGuesses++;
+    failureAudio.play();
     displayWrong();
+    updateScore();
   }
-  updateScore();
+}
+
+function skipQuestion() {
+  setMessage(`answer was ${Math.round((answer + Number.EPSILON) * 100) / 100} you dummy`);
+  document.getElementById("skip").classList.add("d-none");
+  numWrong++;
+  skipAudio.play();
+  generateQuestion();
 }
 
 function displayWrong() {
   let index = parseInt(Math.random() * wrongMessages.length);
-  setMessage(wrongMessages[index]);
+  if (numGuesses >= 8) {
+    setMessage('JUST SKIP THE DAMN QUESTION BRO')
+  } else {
+    setMessage(wrongMessages[index]);
+  }
 }
 
 function updateScore() {
   document.querySelector(".correct").textContent = numCorrect;
   document.querySelector(".wrong").textContent = numWrong;
-  document.querySelector(".guesses").textContent = numGuesses;
+  if (numGuesses === 0) {
+    document.querySelector(".guesses").textContent = " ";
+  } else {
+    document.querySelector(".guesses").textContent = numGuesses;
+  }
+
+  if (numGuesses >= 4) {
+    document.getElementById("skip").classList.remove("d-none");
+  } else {
+    document.getElementById("skip").classList.add("d-none");
+  }
 }
