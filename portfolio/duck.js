@@ -8,31 +8,34 @@ wrongMessages = [
   "literally... how?",
   "this is literally 3rd grade math",
 ]
+begMessages = [
+  "JUST SKIP THE DAMN QUESTION BRO",
+  "HOW MUCH LONGER ARE YOU GONNA TAKE",
+  "I STARTED A WHOLE FAMILY BEFORE YOU FINISHED THIS",
+  "JUST PUT ME OUT OF MY MISERY ALREADY",
+  "ARE YOU ALRIGHT IN THE HEAD?"
+]
 percentList = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 const MINIMUM = 1;
 const MAXIMUM = 20;
 const TOLERANCE = 10E-6;
+const successAudio = new Audio("/audio/success.wav");
+const failureAudio = new Audio("/audio/failure.wav");
+const skipAudio = new Audio("/audio/skip.wav");
+const resetAudio = new Audio("/audio/trash.ogg")
 
 let num1 = 0;
 let num2 = 0;
 let mode = 3;
 let answer = 0;
+
 let numCorrect = 0;
-
-let addStats = [0, 0];
-let subStats = [0, 0];
-let multStats = [0, 0];
-
 let numWrong = 0;
 let numGuesses = 0;
-let prevAnswer = null;
-
-let successAudio = new Audio("/audio/success.wav");
-let failureAudio = new Audio("/audio/failure.wav");
-let skipAudio = new Audio("/audio/skip.wav");
+let totalGuesses = 0;
+let prevAnswers = [];
 
 generateQuestion();
-updateScore();
 
 function setMessage(message) {
   document.querySelector("#message").textContent = message;
@@ -40,6 +43,10 @@ function setMessage(message) {
 
 function setQuestion(message) { 
   document.querySelector(".question").textContent = message;
+}
+
+function roundTwo(num) {
+  return Math.round((num + Number.EPSILON) * 100) / 100
 }
 
 function isEquals(a, b) {
@@ -50,7 +57,7 @@ function generateQuestion() {
   mode = parseInt(document.getElementById("mode").value);
   num1 = parseInt(Math.random() * (MAXIMUM - MINIMUM)) + MINIMUM;
   numGuesses = 0;
-  prevAnswer = null;
+  prevAnswers = [];
 
   document.getElementById("answer").value = "";
   updateScore();
@@ -76,24 +83,31 @@ function checkAnswer() {
     setMessage("please actually enter a number idiot");
     return;
   }
+  if (prevAnswers.includes(userAnswer)) {
+    failureAudio.play();
+    setMessage("you already guessed that wtf are you doing??");
+    return;
+  }
 
+  prevAnswers.push(userAnswer);
+  numGuesses++;
   if (isEquals(userAnswer, answer)) {
-    if (!numGuesses) {
+    totalGuesses += numGuesses;
+    if (numGuesses == 1) {
       numCorrect++;
       setMessage("correct!");
     } else {
       numWrong++;
       if (numGuesses >= 4) {
-        setMessage("correct! after like a million tries LMAOOO");
+        setMessage("correct, after like a million tries LMAOOO");
       } else {
-        setMessage(`correct! took you ${numGuesses} ${numGuesses == 1 ? "try" : "tries"}`);
+        setMessage(`correct, but took you ${numGuesses} tries :(`);
       }
     }
     
     successAudio.play();
     generateQuestion();
   } else {
-    numGuesses++;
     failureAudio.play();
     displayWrong();
     updateScore();
@@ -101,34 +115,57 @@ function checkAnswer() {
 }
 
 function skipQuestion() {
-  setMessage(`answer was ${Math.round((answer + Number.EPSILON) * 100) / 100} you dummy`);
+  setMessage(`answer was ${roundTwo(answer)} you dummy`);
   document.getElementById("skip").classList.add("d-none");
   numWrong++;
   skipAudio.play();
+  totalGuesses += numGuesses;
   generateQuestion();
 }
 
 function displayWrong() {
-  let index = parseInt(Math.random() * wrongMessages.length);
-  if (numGuesses >= 8) {
-    setMessage('JUST SKIP THE DAMN QUESTION BRO')
+  if (numGuesses >= 3) {
+    let index = parseInt(Math.random() * begMessages.length);
+    setMessage(begMessages[index])
   } else {
+    let index = parseInt(Math.random() * wrongMessages.length);
     setMessage(wrongMessages[index]);
   }
 }
 
 function updateScore() {
   document.querySelector(".correct").textContent = numCorrect;
-  document.querySelector(".wrong").textContent = numWrong;
+  document.querySelector(".total").textContent = numCorrect + numWrong;
+
+  document.querySelector(".total-guesses").textContent = totalGuesses;
+
+  averageGuesses = (numCorrect + numWrong) == 0 ? 0 : roundTwo(totalGuesses / (numCorrect + numWrong));
+  document.querySelector(".average-guesses").textContent = averageGuesses;
+
+  rawPercent = (numCorrect + numWrong) == 0 ? 0 : roundTwo(numCorrect / (numCorrect + numWrong) * 100);
+  formattedPercent = (rawPercent).toLocaleString(undefined, {minimumFractionDigits: 2})
+
   if (numGuesses === 0) {
     document.querySelector(".guesses").textContent = " ";
   } else {
     document.querySelector(".guesses").textContent = numGuesses;
   }
+  document.querySelector(".percent").textContent = `(${formattedPercent}%)`
 
-  if (numGuesses >= 4) {
+  if (numGuesses >= 3) {
     document.getElementById("skip").classList.remove("d-none");
   } else {
     document.getElementById("skip").classList.add("d-none");
   }
+}
+
+function resetGame() {
+  numCorrect = 0;
+  numWrong = 0;
+  numGuesses = 0;
+  totalGuesses = 0;
+  prevAnswer = null;
+  document.querySelector("#message").textContent = "restarting now, are we nerd?";
+  resetAudio.play();
+  generateQuestion();
 }
