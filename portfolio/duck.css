@@ -29,11 +29,11 @@ body {
 }
 
 .statistic {
-  font-size: 100%;
+  font-size: 90%;
 }
 
 @media (max-width: 575px) {
   .statistic {
-    font-size: 80%;
+    font-size: 70%;
   }
 }
