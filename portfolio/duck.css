@@ -1,5 +1,9 @@
+html {
+  height: 100%;
+}
+
 body {
-  background: #ffe5c5;
+  background: linear-gradient(45deg, #ffe5c5, #ffc5eb);
 }
 
 .display-6 {
@@ -19,8 +23,9 @@ body {
   margin-right: 0.2em;
 }
 
-.statistic {
+.guesses {
   font-size: 100%;
+  display: inline;
 }
 
 @media (max-width: 394px) {
