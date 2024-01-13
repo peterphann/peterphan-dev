@@ -28,8 +28,12 @@ body {
   display: inline;
 }
 
-@media (max-width: 394px) {
+.statistic {
+  font-size: 100%;
+}
+
+@media (max-width: 575px) {
   .statistic {
-    font-size: 80%;
+    font-size: 85%;
   }
 }
