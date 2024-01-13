@@ -19,7 +19,7 @@ let mode = 3;
 let answer = 0;
 let numCorrect = 0;
 let numWrong = 0;
-let hasGuessed = false;
+let numGuesses = 0;
 
 generateQuestion();
 
@@ -34,7 +34,7 @@ function isEquals(a, b) {
 function generateQuestion() {
   mode = parseInt(document.getElementById("mode").value);
   num1 = parseInt(Math.random() * (MAXIMUM - MINIMUM)) + MINIMUM;
-  hasGuessed = false;
+  numGuesses = 0;
 
   document.getElementById("answer").value = "";
 
@@ -64,16 +64,21 @@ function checkAnswer() {
   }
 
   if (isEquals(userAnswer, answer)) {
-    if (!hasGuessed) {
+    if (!numGuesses) {
       numCorrect++;
+      setMessage("correct!");
+    } else {
+      numWrong++;
+      if (numGuesses >= 4) {
+        setMessage("correct! after like a million tries LMAOOO");
+      } else {
+        setMessage(`correct! took you ${numGuesses} ${numGuesses == 1 ? "try" : "tries"}`);
+      }
     }
-    setMessage("correct!");
+    
     generateQuestion();
   } else {
-    if (!hasGuessed) {
-      numWrong++;
-    }
-    hasGuessed = true;
+    numGuesses++;
     displayWrong();
   }
   updateScore();
@@ -87,4 +92,5 @@ function displayWrong() {
 function updateScore() {
   document.querySelector(".correct").textContent = numCorrect;
   document.querySelector(".wrong").textContent = numWrong;
+  document.querySelector(".guesses").textContent = numGuesses;
 }
