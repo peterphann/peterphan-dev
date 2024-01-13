@@ -38,3 +38,10 @@ body {
 .card {
   width: 18rem;
 }
+
+.duck {
+  width: 40px;
+  margin-top: 3rem;
+  padding: 10px;
+  opacity: 0.05;
+}
