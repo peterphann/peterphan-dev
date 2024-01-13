@@ -1,0 +1,20 @@
+body {
+  background: #ffe5c5;
+}
+
+.display-6 {
+  font-weight: bold;
+}
+
+.nav-item a {
+  color: #a2a4a5;
+}
+
+.nav-item a:hover {
+  color: white;
+}
+
+.question h1 {
+  display: inline;
+  margin-right: 0.2em;
+}
