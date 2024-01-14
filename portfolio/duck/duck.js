@@ -52,7 +52,7 @@ const TOLERANCE = 10E-6;
 const successAudio = new Audio("/audio/success.wav");
 const failureAudio = new Audio("/audio/failure.wav");
 const skipAudio = new Audio("/audio/skip.wav");
-const resetAudio = new Audio("/audio/trash.ogg");
+const resetAudio = new Audio("/audio/trash.wav");
 const switchAudio = new Audio("/audio/switch.wav");
 
 let num1 = 0;
