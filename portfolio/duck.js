@@ -16,8 +16,8 @@ begMessages = [
   "ARE YOU ALRIGHT IN THE HEAD?"
 ]
 percentList = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-let MINIMUM = parseInt(document.getElementById("minimum").value);
-let MAXIMUM = parseInt(document.getElementById("maximum").value);
+let minimum = parseInt(document.getElementById("minimum").value);
+let maximum = parseInt(document.getElementById("maximum").value);
 const TOLERANCE = 10E-6;
 const successAudio = new Audio("/audio/success.wav");
 const failureAudio = new Audio("/audio/failure.wav");
@@ -57,9 +57,13 @@ function isEquals(a, b) {
   return Math.abs(a - b) <= TOLERANCE;
 }
 
+function getRandomInclusive(a, b) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function updateRange() {
-  MINIMUM = parseInt(document.getElementById("minimum").value);
-  MAXIMUM = parseInt(document.getElementById("maximum").value); 
+  minimum = parseInt(document.getElementById("minimum").value);
+  maximum = parseInt(document.getElementById("maximum").value); 
 }
 
 function resetTimer() {
@@ -82,7 +86,7 @@ function refreshQuestion() {
 
 function generateQuestion() {
   mode = parseInt(document.getElementById("mode").value);
-  num1 = parseInt(Math.random() * (MAXIMUM - MINIMUM)) + MINIMUM;
+  num1 = getRandomInclusive(minimum, maximum);
   numGuesses = 0;
   prevAnswers = [];
 
@@ -95,7 +99,7 @@ function generateQuestion() {
     answer = num1 * num2;
     setQuestion(`${num2 * 100}% of ${num1} = ?`); 
   } else {
-    num2 = parseInt(Math.random() * (MAXIMUM - MINIMUM)) + MINIMUM;;
+    num2 = getRandomInclusive(minimum, maximum);
 
     let operation = mode === 1 ? "+" : "-";
     answer = mode === 1 ? num1 + num2 : num1 - num2;
