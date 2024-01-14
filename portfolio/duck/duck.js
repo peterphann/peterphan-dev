@@ -295,6 +295,7 @@ function updateDifficulty() {
 
 function changeModes() {
   generateQuestion();
+  switchAudio.play();
   if (mode === "mul") {
     document.getElementById("difficulties").classList.remove("d-none");
   } else {
