@@ -18,18 +18,22 @@ body {
   color: white;
 }
 
-.question h2 {
+#question h2 {
   display: inline;
   margin-right: 0.2em;
 }
 
-.guesses, .current-time {
+.answer-info {
   font-size: 100%;
   display: inline;
 }
 
 .statistic {
   font-size: 90%;
+}
+
+hr {
+  align-self: flex-end;
 }
 
 @media (max-width: 575px) {
@@ -43,7 +47,7 @@ body {
 }
 
 @media (max-width: 400px) {
-  .question {
+  #question {
     font-size: 1.25em;
   }
 }
