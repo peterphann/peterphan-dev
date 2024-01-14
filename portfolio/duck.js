@@ -17,7 +17,7 @@ begMessages = [
 ]
 percentList = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 const MINIMUM = 1;
-const MAXIMUM = 20;
+const MAXIMUM = 100;
 const TOLERANCE = 10E-6;
 const successAudio = new Audio("/audio/success.wav");
 const failureAudio = new Audio("/audio/failure.wav");
