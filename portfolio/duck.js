@@ -70,7 +70,7 @@ function resetTimer() {
   currentID = setInterval(function() {
     let delta = Date.now() - start;
     currentTime = Math.floor(delta / 100) / 10;
-    document.querySelector(".current-time").textContent = (currentTime).toLocaleString(undefined, {minimumFractionDigits: 1});
+    document.querySelector(".time-span").textContent = (currentTime).toLocaleString(undefined, {minimumFractionDigits: 1});
   }, 10);
 }
 

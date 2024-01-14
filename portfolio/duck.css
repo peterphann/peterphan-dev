@@ -36,6 +36,10 @@ body {
   .statistic {
     font-size: 70%;
   }
+
+  #message {
+    font-size: 80%;
+  }
 }
 
 @media (max-width: 400px) {
