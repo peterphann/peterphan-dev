@@ -18,12 +18,12 @@ body {
   color: white;
 }
 
-.question h2 {
+#question h2 {
   display: inline;
   margin-right: 0.2em;
 }
 
-.guesses, .current-time {
+.answer-info {
   font-size: 100%;
   display: inline;
 }
@@ -32,18 +32,12 @@ body {
   font-size: 90%;
 }
 
-@media (max-width: 575px) {
-  .statistic {
-    font-size: 70%;
-  }
-
-  #message {
-    font-size: 80%;
-  }
+hr {
+  align-self: flex-end;
 }
 
-@media (max-width: 400px) {
-  .question {
-    font-size: 1.25em;
+@media (max-width: 575px) {
+  .statistic {
+    font-size: 80%;
   }
 }
