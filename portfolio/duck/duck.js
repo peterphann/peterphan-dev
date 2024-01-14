@@ -289,6 +289,7 @@ function pauseTimer() {
 }
 
 function updateDifficulty() {
+  switchAudio.play();
   difficulty = document.querySelector('input[name="difficulty"]:checked').value;
 }
 
