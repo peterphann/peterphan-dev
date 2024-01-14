@@ -58,7 +58,7 @@ function isEquals(a, b) {
 }
 
 function getRandomInclusive(a, b) {
-  return Math.floor(Math.random() * (b - a + 1)) + min;
+  return Math.floor(Math.random() * (b - a + 1)) + a;
 }
 
 function updateRange() {
