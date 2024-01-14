@@ -21,7 +21,6 @@ function copyToClipboard() {
   clipboardClasses = document.getElementById("clipboard-alert").classList;
   clipboardClasses.add("show");
   clipboardClasses.remove("d-none");
-
 }
 
 function resetButton() {
