@@ -23,7 +23,7 @@ body {
   margin-right: 0.2em;
 }
 
-.guesses {
+.guesses, .current-time {
   font-size: 100%;
   display: inline;
 }
@@ -35,5 +35,11 @@ body {
 @media (max-width: 575px) {
   .statistic {
     font-size: 70%;
+  }
+}
+
+@media (max-width: 400px) {
+  .question {
+    font-size: 1.25em;
   }
 }

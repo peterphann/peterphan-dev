@@ -16,8 +16,8 @@ begMessages = [
   "ARE YOU ALRIGHT IN THE HEAD?"
 ]
 percentList = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
-const MINIMUM = 1;
-const MAXIMUM = 100;
+let MINIMUM = parseInt(document.getElementById("minimum").value);
+let MAXIMUM = parseInt(document.getElementById("maximum").value);
 const TOLERANCE = 10E-6;
 const successAudio = new Audio("/audio/success.wav");
 const failureAudio = new Audio("/audio/failure.wav");
@@ -29,10 +29,14 @@ let num2 = 0;
 let mode = 3;
 let answer = 0;
 
+let currentTime = 0;
+let currentID = null;
+
 let numCorrect = 0;
 let numWrong = 0;
 let numGuesses = 0;
 let totalGuesses = 0;
+let totalTime = 0;
 let prevAnswers = [];
 
 generateQuestion();
@@ -53,6 +57,29 @@ function isEquals(a, b) {
   return Math.abs(a - b) <= TOLERANCE;
 }
 
+function updateRange() {
+  MINIMUM = parseInt(document.getElementById("minimum").value);
+  MAXIMUM = parseInt(document.getElementById("maximum").value); 
+}
+
+function resetTimer() {
+  let start = Date.now();
+  if (currentID !== null) {
+    clearInterval(currentID);
+  }
+  currentID = setInterval(function() {
+    let delta = Date.now() - start;
+    currentTime = Math.floor(delta / 100) / 10;
+    document.querySelector(".current-time").textContent = (currentTime).toLocaleString(undefined, {minimumFractionDigits: 1});
+  }, 10);
+}
+
+function refreshQuestion() {
+  generateQuestion();
+  skipAudio.play();
+  setMessage("this is a skip in spirit, you aint innocent lil bro");
+}
+
 function generateQuestion() {
   mode = parseInt(document.getElementById("mode").value);
   num1 = parseInt(Math.random() * (MAXIMUM - MINIMUM)) + MINIMUM;
@@ -60,14 +87,15 @@ function generateQuestion() {
   prevAnswers = [];
 
   document.getElementById("answer").value = "";
-  updateScore();
+  resetTimer();
+  updateStatistics();
 
   if (mode === 3) {
     num2 = percentList[parseInt(Math.random() * percentList.length)];
     answer = num1 * num2;
     setQuestion(`${num2 * 100}% of ${num1} = ?`); 
   } else {
-    num2 = parseInt(Math.random() * 20) + 1;
+    num2 = parseInt(Math.random() * (MAXIMUM - MINIMUM)) + MINIMUM;;
 
     let operation = mode === 1 ? "+" : "-";
     answer = mode === 1 ? num1 + num2 : num1 - num2;
@@ -93,6 +121,7 @@ function checkAnswer() {
   numGuesses++;
   if (isEquals(userAnswer, answer)) {
     totalGuesses += numGuesses;
+    totalTime += currentTime;
     if (numGuesses == 1) {
       numCorrect++;
       setMessage("correct!");
@@ -110,7 +139,7 @@ function checkAnswer() {
   } else {
     failureAudio.play();
     displayWrong();
-    updateScore();
+    updateStatistics();
   }
 }
 
@@ -120,6 +149,7 @@ function skipQuestion() {
   numWrong++;
   skipAudio.play();
   totalGuesses += numGuesses;
+  totalTime += currentTime;
   generateQuestion();
 }
 
@@ -133,22 +163,27 @@ function displayWrong() {
   }
 }
 
-function updateScore() {
+function updateStatistics() {
+  let totalGames = numCorrect + numWrong;
   document.querySelector(".correct").textContent = numCorrect;
   document.querySelector(".total").textContent = numCorrect + numWrong;
 
   document.querySelector(".total-guesses").textContent = totalGuesses;
 
-  averageGuesses = (numCorrect + numWrong) == 0 ? 0 : roundTwo(totalGuesses / (numCorrect + numWrong));
+  averageGuesses = (numCorrect + numWrong) == 0 ? 0 : roundTwo(totalGuesses / totalGames);
   document.querySelector(".average-guesses").textContent = averageGuesses;
+  
+  averageTime = (numCorrect + numWrong) == 0 ? 0 : roundTwo(totalTime / totalGames);
+  document.querySelector(".average-time").textContent = averageTime;
 
   rawPercent = (numCorrect + numWrong) == 0 ? 0 : roundTwo(numCorrect / (numCorrect + numWrong) * 100);
   formattedPercent = (rawPercent).toLocaleString(undefined, {minimumFractionDigits: 2})
+  
 
   if (numGuesses === 0) {
-    document.querySelector(".guesses").textContent = " ";
+    document.querySelector(".guesses-span").textContent = "1";
   } else {
-    document.querySelector(".guesses").textContent = numGuesses;
+    document.querySelector(".guesses-span").textContent = numGuesses + 1;
   }
   document.querySelector(".percent").textContent = `(${formattedPercent}%)`
 
@@ -164,6 +199,7 @@ function resetGame() {
   numWrong = 0;
   numGuesses = 0;
   totalGuesses = 0;
+  totalTime = 0;
   prevAnswer = null;
   document.querySelector("#message").textContent = "restarting now, are we nerd?";
   resetAudio.play();
