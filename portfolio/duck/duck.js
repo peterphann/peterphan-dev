@@ -57,7 +57,7 @@ const switchAudio = new Audio("/audio/switch.wav");
 
 let num1 = 0;
 let num2 = 0;
-let mode = 3;
+let mode = "per";
 let answer = 0;
 
 let currentTime = 0;
@@ -186,18 +186,18 @@ function updateStatistics() {
 function generateQuestion() {
   mode = document.getElementById("mode").value;
   num1 = getRandomInclusive(minimum, maximum);
-  num2 = (mode === "mul") ? getRandomFromList(percentLists[difficulty]) : getRandomInclusive(minimum, maximum);
+  num2 = (mode === "per") ? getRandomFromList(percentLists[difficulty]) : getRandomInclusive(minimum, maximum);
 
   resetQuestionStats();
   updateStatistics();
 
-  if (mode === "mul") {
+  if (mode === "per") {
     answer = num1 * num2;
     let formattedPercent = (num2 * 100).toLocaleString(undefined, { maximumFractionDigits: 0});
     document.getElementById("question").textContent = `${formattedPercent}% of ${num1} = ?`;
   } else {
-    let operation = (mode === "add") ? "+" : "-";
-    answer = (mode === "add") ? (num1 + num2) : (num1 - num2);
+    let operation = (mode === "add") ? "+" : (mode === "sub") ? "-" : "×";
+    answer = (mode === "add") ? (num1 + num2) : (mode === "sub") ? (num1 + num2) : (num1 * num2);
     document.getElementById("question").textContent = `${num1} ${operation} ${num2} = ?`;
   }
 }
@@ -296,7 +296,7 @@ function updateDifficulty() {
 function changeModes() {
   generateQuestion();
   switchAudio.play();
-  if (mode === "mul") {
+  if (mode === "per") {
     document.getElementById("difficulties").classList.remove("d-none");
   } else {
     document.getElementById("difficulties").classList.add("d-none");
