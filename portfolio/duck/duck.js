@@ -278,11 +278,13 @@ function pauseTimer() {
     document.getElementById("submit-button").setAttribute("disabled", "");
     document.getElementById("play-icon").classList.remove("d-none");
     document.getElementById("pause-icon").classList.add("d-none");
+    setMessage("you paused it wtf");
   } else {
     document.getElementById("user-answer").removeAttribute("disabled", "");
     document.getElementById("submit-button").removeAttribute("disabled", "");
     document.getElementById("pause-icon").classList.remove("d-none");
     document.getElementById("play-icon").classList.add("d-none");
+    setMessage("thank you");
   }
 }
 
