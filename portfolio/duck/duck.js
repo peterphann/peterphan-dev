@@ -74,6 +74,7 @@ let prevAnswers = [];
 
 setMessage(getRandomFromList(startingMessages));
 generateQuestion();
+document.getElementById("title").textContent = mode;
 
 function setMessage(message) {
   document.getElementById("message").textContent = message;
@@ -196,9 +197,12 @@ function generateQuestion() {
     answer = num1 * num2;
     let formattedPercent = (num2 * 100).toLocaleString(undefined, { maximumFractionDigits: 0});
     document.getElementById("question").textContent = `${formattedPercent}% of ${num1} = ?`;
+  } else if (mode === "Perfect Squares") {
+    answer = num1**2;
+    document.getElementById("question").textContent = `${num1}² = ?`;
   } else {
     let operation = (mode === "Addition") ? "+" : (mode === "Subtraction") ? "-" : "×";
-    answer = (mode === "Addition") ? (num1 + num2) : (mode === "Subtraction") ? (num1 + num2) : (num1 * num2);
+    answer = (mode === "Addition") ? (num1 + num2) : (mode === "Subtraction") ? (num1 - num2) : (num1 * num2);
     document.getElementById("question").textContent = `${num1} ${operation} ${num2} = ?`;
   }
 }
