@@ -1,0 +1,24 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(45deg, #eac5ff, #feffc5);
+}
+
+.display-6 {
+  font-weight: bold;
+}
+
+.nav-item a {
+  color: #a2a4a5;
+}
+
+.nav-item a:hover {
+  color: white;
+}
+
+textarea {
+  font-size: 4em;
+  resize: none;
+}
