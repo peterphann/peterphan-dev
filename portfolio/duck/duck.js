@@ -75,6 +75,9 @@ let prevAnswers = [];
 setMessage(getRandomFromList(startingMessages));
 generateQuestion();
 document.getElementById("title").textContent = mode;
+document.getElementById("submit-button").addEventListener("click", () => {
+  document.getElementById("user-answer").focus();
+})
 
 function setMessage(message) {
   document.getElementById("message").textContent = message;
