@@ -345,7 +345,8 @@ function detectSweat() {
     499: "its for a necessary cause",
     500: "HOP OFF LIL BRO YOUR STENCH IS INSANE",
     501: "fine do your thing",
-    1000: "i have no words"
+    1000: "i have no words",
+    2000: "you thought there'd be a funny message or smth huh? lmao you just wasted your time"
   };
 
   let messageElement = document.getElementById("message");
