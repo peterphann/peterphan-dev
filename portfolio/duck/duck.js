@@ -55,6 +55,7 @@ const failureAudio = new Audio("/audio/failure.wav");
 const skipAudio = new Audio("/audio/skip.wav");
 const resetAudio = new Audio("/audio/trash.wav");
 const switchAudio = new Audio("/audio/switch.wav");
+const quackAudio = new Audio("/audio/quack.mp3");
 
 let num1 = 0;
 let num2 = 0;
@@ -78,6 +79,12 @@ document.getElementById("title").textContent = mode;
 document.getElementById("submit-button").addEventListener("click", () => {
   document.getElementById("user-answer").focus();
 })
+// loadStatistics();
+
+function loadStatistics() {
+  let storage = localStorage.getItem("numCorrect");
+  alert(storage);
+}
 
 function setMessage(message) {
   document.getElementById("message").textContent = message;
@@ -185,6 +192,52 @@ function updateStatistics() {
     document.getElementById("skip").classList.remove("d-none");
   } else {
     document.getElementById("skip").classList.add("d-none");
+  }
+
+  switch (totalCorrect + totalWrong) {
+    case 25:
+      setMessage("i'm watching you.");
+      break;
+    case 50:
+      setMessage("i know this is you ducky")
+      break;
+    case 100:
+      setMessage("i'm gonna close this website chill out");
+      break;
+    case 150:
+      setMessage("you wanna stop sweating for a bit?");
+      break;
+    case 200:
+      setMessage("don't you have a life to get back to");
+      break;
+    case 250:
+      setMessage("your mental math is good enough pls stop");
+      break;
+    case 300:
+      setMessage("i'm gonna close this website chill out");
+      break;
+    case 350:
+      setMessage("PLEASEE DO SOMETHING ELSE FOR ONCE");
+      break;
+    case 400:
+      setMessage("you got 100 attempts left lil bro");
+      break;
+    case 498:
+      setMessage("sorry that i have to do this");
+      break;
+    case 499:
+      setMessage("its for a necessary cause");
+      break;
+    case 2:
+      setMessage("HOP OFF LIL BRO YOUR STENCH IS INSANE");
+      document.getElementById("user-answer").setAttribute("disabled", "");
+      document.getElementById("submit-button").setAttribute("disabled", "");
+      document.getElementById("reset-button").setAttribute("disabled", "");
+      document.getElementById("pause-button").setAttribute("disabled", "");
+      document.getElementById("refresh-button").setAttribute("disabled", "");
+      document.getElementById("mode").setAttribute("disabled", "");
+      quackAudio.play();
+      isTimerPaused = true;
   }
 }
 
