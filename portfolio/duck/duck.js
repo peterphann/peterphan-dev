@@ -228,7 +228,7 @@ function updateStatistics() {
     case 499:
       setMessage("its for a necessary cause");
       break;
-    case 500:
+    case 2:
       setMessage("HOP OFF LIL BRO YOUR STENCH IS INSANE");
       document.getElementById("user-answer").setAttribute("disabled", "");
       document.getElementById("submit-button").setAttribute("disabled", "");
@@ -238,6 +238,20 @@ function updateStatistics() {
       document.getElementById("mode").setAttribute("disabled", "");
       quackAudio.play();
       isTimerPaused = true;
+      let fakeTime = 0;
+      let fake = setInterval(function() {
+        fakeTime++;
+        if (fakeTime === 5) {
+          document.getElementById("user-answer").removeAttribute("disabled");
+          document.getElementById("submit-button").removeAttribute("disabled");
+          document.getElementById("reset-button").removeAttribute("disabled");
+          document.getElementById("pause-button").removeAttribute("disabled");
+          document.getElementById("refresh-button").removeAttribute("disabled");
+          document.getElementById("mode").removeAttribute("disabled");
+          isTimerPaused = false;
+          clearInterval(fake);
+        } 
+      }, 1000)
   }
 }
 
