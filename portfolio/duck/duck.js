@@ -228,7 +228,7 @@ function updateStatistics() {
     case 499:
       setMessage("its for a necessary cause");
       break;
-    case 2:
+    case 500:
       setMessage("HOP OFF LIL BRO YOUR STENCH IS INSANE");
       document.getElementById("user-answer").setAttribute("disabled", "");
       document.getElementById("submit-button").setAttribute("disabled", "");
