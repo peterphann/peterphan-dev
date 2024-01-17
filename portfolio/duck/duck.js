@@ -323,16 +323,24 @@ function changeModes() {
 
 function detectSweat() {
   let messages = {
-    2: "i'm watching you.",
+    25: "i'm watching you.",
     50: "i know this is you ducky",
+    75: "this is the beginning of the end oh god",
     100: "i'm gonna close this website chill out",
+    125: "i see you're committed now",
     150: "you wanna stop sweating for a bit?",
+    175: "someone's a little obsessed ._.",
     200: "don't you have a life to get back to",
+    225: "go be with your friends or smth",
     250: "your mental math is good enough pls stop",
+    275: "genuinely what is your issue",
     300: "PLEASEE DO SOMETHING ELSE FOR ONCE",
+    325: "what a waste of a lovely night amirite",
     350: "WHY DO YOU INSIST ON BEING SO SWEATY",
+    375: "you're pushing 30, doing an arithmetic test",
     400: "you got 100 attempts left lil bro",
-    450: "your brain probably isn't even on rn" ,
+    450: "your brain probably isn't even on rn",
+    475: "okay goofball i admit defeat go ahead",
     498: "sorry that i have to do this",
     499: "its for a necessary cause",
     500: "HOP OFF LIL BRO YOUR STENCH IS INSANE"
