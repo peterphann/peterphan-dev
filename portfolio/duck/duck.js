@@ -56,7 +56,7 @@ const skipAudio = new Audio("/audio/skip.wav");
 const resetAudio = new Audio("/audio/trash.wav");
 const switchAudio = new Audio("/audio/switch.wav");
 const quackAudio = new Audio("/audio/quack.mp3");
-const boomAudio = new Audio("/audio/boom.mp3");
+const duckAudio = new Audio("/audio/duck.wav");
 
 let num1 = 0;
 let num2 = 0;
@@ -350,13 +350,11 @@ function detectSweat() {
 
   let sweatMessage = messages[totalCorrect + totalWrong];
   if (sweatMessage !== undefined) {
-    boomAudio.play();
+    duckAudio.play();
     messageElement.textContent = sweatMessage;
     messageElement.classList.add("text-danger");
-    messageElement.classList.add("boom");
   } else {
     messageElement.classList.remove("text-danger");
-    messageElement.classList.remove("boom");
   }
 
   if (totalCorrect + totalWrong === 500) {
