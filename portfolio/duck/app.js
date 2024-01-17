@@ -338,12 +338,14 @@ function detectSweat() {
     325: "what a waste of a lovely night amirite",
     350: "WHY DO YOU INSIST ON BEING SO SWEATY",
     375: "you're pushing 30, doing an arithmetic test",
-    400: "you got 100 attempts left lil bro",
+    400: "you got 100 attempts left kid",
     450: "your brain probably isn't even on rn",
     475: "okay goofball i admit defeat go ahead",
     498: "sorry that i have to do this",
     499: "its for a necessary cause",
-    500: "HOP OFF LIL BRO YOUR STENCH IS INSANE"
+    500: "HOP OFF LIL BRO YOUR STENCH IS INSANE",
+    501: "fine do your thing",
+    1000: "i have no words"
   };
 
   let messageElement = document.getElementById("message");
@@ -358,28 +360,7 @@ function detectSweat() {
   }
 
   if (totalCorrect + totalWrong === 500) {
-      document.getElementById("user-answer").setAttribute("disabled", "");
-      document.getElementById("submit-button").setAttribute("disabled", "");
-      document.getElementById("reset-button").setAttribute("disabled", "");
-      document.getElementById("pause-button").setAttribute("disabled", "");
-      document.getElementById("refresh-button").setAttribute("disabled", "");
-      document.getElementById("mode").setAttribute("disabled", "");
       quackAudio.play();
-      isTimerPaused = true;
-      let fakeTime = 0;
-      let fake = setInterval(function() {
-        fakeTime++;
-        if (fakeTime === 5) {
-          document.getElementById("user-answer").removeAttribute("disabled");
-          document.getElementById("submit-button").removeAttribute("disabled");
-          document.getElementById("reset-button").removeAttribute("disabled");
-          document.getElementById("pause-button").removeAttribute("disabled");
-          document.getElementById("refresh-button").removeAttribute("disabled");
-          document.getElementById("mode").removeAttribute("disabled");
-          isTimerPaused = false;
-          clearInterval(fake);
-        } 
-      }, 1000)
   }
 
 }
