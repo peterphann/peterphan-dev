@@ -56,6 +56,7 @@ const skipAudio = new Audio("/audio/skip.wav");
 const resetAudio = new Audio("/audio/trash.wav");
 const switchAudio = new Audio("/audio/switch.wav");
 const quackAudio = new Audio("/audio/quack.mp3");
+const boomAudio = new Audio("/audio/boom.mp3");
 
 let num1 = 0;
 let num2 = 0;
@@ -193,66 +194,6 @@ function updateStatistics() {
   } else {
     document.getElementById("skip").classList.add("d-none");
   }
-
-  switch (totalCorrect + totalWrong) {
-    case 25:
-      setMessage("i'm watching you.");
-      break;
-    case 50:
-      setMessage("i know this is you ducky")
-      break;
-    case 100:
-      setMessage("i'm gonna close this website chill out");
-      break;
-    case 150:
-      setMessage("you wanna stop sweating for a bit?");
-      break;
-    case 200:
-      setMessage("don't you have a life to get back to");
-      break;
-    case 250:
-      setMessage("your mental math is good enough pls stop");
-      break;
-    case 300:
-      setMessage("i'm gonna close this website chill out");
-      break;
-    case 350:
-      setMessage("PLEASEE DO SOMETHING ELSE FOR ONCE");
-      break;
-    case 400:
-      setMessage("you got 100 attempts left lil bro");
-      break;
-    case 498:
-      setMessage("sorry that i have to do this");
-      break;
-    case 499:
-      setMessage("its for a necessary cause");
-      break;
-    case 2:
-      setMessage("HOP OFF LIL BRO YOUR STENCH IS INSANE");
-      document.getElementById("user-answer").setAttribute("disabled", "");
-      document.getElementById("submit-button").setAttribute("disabled", "");
-      document.getElementById("reset-button").setAttribute("disabled", "");
-      document.getElementById("pause-button").setAttribute("disabled", "");
-      document.getElementById("refresh-button").setAttribute("disabled", "");
-      document.getElementById("mode").setAttribute("disabled", "");
-      quackAudio.play();
-      isTimerPaused = true;
-      let fakeTime = 0;
-      let fake = setInterval(function() {
-        fakeTime++;
-        if (fakeTime === 5) {
-          document.getElementById("user-answer").removeAttribute("disabled");
-          document.getElementById("submit-button").removeAttribute("disabled");
-          document.getElementById("reset-button").removeAttribute("disabled");
-          document.getElementById("pause-button").removeAttribute("disabled");
-          document.getElementById("refresh-button").removeAttribute("disabled");
-          document.getElementById("mode").removeAttribute("disabled");
-          isTimerPaused = false;
-          clearInterval(fake);
-        } 
-      }, 1000)
-  }
 }
 
 function generateQuestion() {
@@ -260,6 +201,7 @@ function generateQuestion() {
   num1 = getRandomInclusive(minimum, maximum);
   num2 = (mode === "Percentages") ? getRandomFromList(percentLists[difficulty]) : getRandomInclusive(minimum, maximum);
 
+  detectSweat();
   resetQuestionStats();
   updateStatistics();
 
@@ -377,4 +319,61 @@ function changeModes() {
   } else {
     document.getElementById("difficulties").classList.add("d-none");
   }
+}
+
+function detectSweat() {
+  let messages = {
+    2: "i'm watching you.",
+    50: "i know this is you ducky",
+    100: "i'm gonna close this website chill out",
+    150: "you wanna stop sweating for a bit?",
+    200: "don't you have a life to get back to",
+    250: "your mental math is good enough pls stop",
+    300: "PLEASEE DO SOMETHING ELSE FOR ONCE",
+    350: "WHY DO YOU INSIST ON BEING SO SWEATY",
+    400: "you got 100 attempts left lil bro",
+    450: "your brain probably isn't even on rn" ,
+    498: "sorry that i have to do this",
+    499: "its for a necessary cause",
+    500: "HOP OFF LIL BRO YOUR STENCH IS INSANE"
+  };
+
+  let messageElement = document.getElementById("message");
+
+  let sweatMessage = messages[totalCorrect + totalWrong];
+  if (sweatMessage !== undefined) {
+    boomAudio.play();
+    messageElement.textContent = sweatMessage;
+    messageElement.classList.add("text-danger");
+    messageElement.classList.add("boom");
+  } else {
+    messageElement.classList.remove("text-danger");
+    messageElement.classList.remove("boom");
+  }
+
+  if (totalCorrect + totalWrong === 500) {
+      document.getElementById("user-answer").setAttribute("disabled", "");
+      document.getElementById("submit-button").setAttribute("disabled", "");
+      document.getElementById("reset-button").setAttribute("disabled", "");
+      document.getElementById("pause-button").setAttribute("disabled", "");
+      document.getElementById("refresh-button").setAttribute("disabled", "");
+      document.getElementById("mode").setAttribute("disabled", "");
+      quackAudio.play();
+      isTimerPaused = true;
+      let fakeTime = 0;
+      let fake = setInterval(function() {
+        fakeTime++;
+        if (fakeTime === 5) {
+          document.getElementById("user-answer").removeAttribute("disabled");
+          document.getElementById("submit-button").removeAttribute("disabled");
+          document.getElementById("reset-button").removeAttribute("disabled");
+          document.getElementById("pause-button").removeAttribute("disabled");
+          document.getElementById("refresh-button").removeAttribute("disabled");
+          document.getElementById("mode").removeAttribute("disabled");
+          isTimerPaused = false;
+          clearInterval(fake);
+        } 
+      }, 1000)
+  }
+
 }
