@@ -7,6 +7,8 @@ const wrongMessages = [
   "could you be any slower?",
   "literally... how?",
   "this is literally 3rd grade math",
+  "bruh at least try a little",
+  "worse than the cowboys fr LMAOOOO"
 ];
 const begMessages = [
   "JUST SKIP THE DAMN QUESTION KID",
@@ -345,7 +347,6 @@ function detectSweat() {
     499: "its for a necessary cause",
     500: "HOP OFF LIL BRO YOUR STENCH IS INSANE",
     501: "fine do your thing",
-    2000: "i have no words",
     1000: "you thought there'd be a funny message or smth huh? lmao you just wasted your time"
   };
 
