@@ -354,15 +354,10 @@ function detectSweat() {
 
   let sweatMessage = messages[totalCorrect + totalWrong];
   if (sweatMessage !== undefined) {
-    duckAudio.play();
     messageElement.textContent = sweatMessage;
     messageElement.classList.add("text-danger");
   } else {
     messageElement.classList.remove("text-danger");
-  }
-
-  if (totalCorrect + totalWrong === 500) {
-      quackAudio.play();
   }
 
 }
