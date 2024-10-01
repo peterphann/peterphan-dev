@@ -1,15 +1,10 @@
-import Navbar from "../components/Navbar";
-import headshot from "../assets/headshot.png"
+import ProfileCard from "../components/ProfileCard";
 
 function Home() {
 
   return (
     <div>
-      <Navbar/>
-      
-      <div className="w-60">
-        <img className="rounded-full" src={headshot} alt="" />
-      </div>
+      <ProfileCard className="ml-16 mt-16" />
     </div>
   )
 }
