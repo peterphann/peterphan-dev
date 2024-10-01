@@ -5,7 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'koifish-white': '#f9ecd9',
+        'koifish-red': '#f75640',
+        'koifish-black': '#2f3451'
+      }
+    },
   },
   plugins: [],
 }
