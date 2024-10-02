@@ -1,4 +1,4 @@
-import polygons from "../assets/polygons-blue.jpg";
+import polygons from "../assets/polygons-blue.png";
 
 function BackgroundOverlay() {
 
