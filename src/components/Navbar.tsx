@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/logo.png"
-import { motion } from "framer-motion"
-import instagram from "../assets/instagram.png"
-import linkedin from "../assets/linkedin.png"
-import github from "../assets/github.png"
+import logo from "../assets/logo.png";
+import { motion } from "framer-motion";
+import instagram from "../assets/instagram.png";
+import linkedin from "../assets/linkedin.png";
+import github from "../assets/github.png";
 
 interface Link {
   name: string;
@@ -18,7 +18,7 @@ function Navbar() {
     { name: "about", reference: "/about" },
     { name: "portfolio", reference: "/portfolio" },
     { name: "contact", reference: "/contact" },
-  ]
+  ];
 
   return (
     <div className="w-screen h-20 flex justify-between bg-[#111111] p-2 fixed top-0 text-white shadow-md">
@@ -55,7 +55,7 @@ function Navbar() {
 
       </div>
     </div>
-  )
+  );
 }
 
 export default Navbar;

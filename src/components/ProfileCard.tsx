@@ -1,6 +1,6 @@
 import { AcademicCapIcon, MapPinIcon } from "@heroicons/react/24/outline";
-import headshot from "../assets/headshot.png"
-import {motion} from "framer-motion"
+import headshot from "../assets/headshot.png";
+import {motion} from "framer-motion";
 
 interface ProfileCardProps {
   className?: string;
@@ -47,7 +47,7 @@ function ProfileCard({ className }: ProfileCardProps) {
 
         </div>
     </div>
-  )
+  );
 }
 
 export default ProfileCard;

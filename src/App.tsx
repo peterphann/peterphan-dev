@@ -1,10 +1,10 @@
-import Home from './pages/Home'
-import BackgroundOverlay from './components/BackgroundOverlay'
-import Navbar from './components/Navbar'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import About from './pages/About'
-import Portfolio from './pages/Portfolio'
-import Contact from './pages/Contact'
+import Home from './pages/Home';
+import BackgroundOverlay from './components/BackgroundOverlay';
+import Navbar from './components/Navbar';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import About from './pages/About';
+import Portfolio from './pages/Portfolio';
+import Contact from './pages/Contact';
 
 function App() {
 
@@ -21,7 +21,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

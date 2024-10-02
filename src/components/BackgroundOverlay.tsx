@@ -6,7 +6,7 @@ function BackgroundOverlay() {
     <div className="fixed right-0 opacity-45 -z-50">
       <img className="min-h-screen object-fill select-none" draggable={false} src={polygons} alt="" />
     </div>
-  )
+  );
 
 }
 
