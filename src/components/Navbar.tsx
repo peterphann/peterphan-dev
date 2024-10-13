@@ -21,7 +21,7 @@ function Navbar() {
   ];
 
   return (
-    <div className="w-screen h-20 flex justify-between bg-[#111111] p-2 fixed top-0 text-white shadow-md">
+    <nav className="w-screen h-20 flex justify-between bg-[#111111] p-2 fixed top-0 text-white shadow-md">
       <div className="flex">
         <Link className="ml-8" to="/">
           <motion.div className="hover:cursor-pointer" whileHover={{ scale: 1.1}} whileTap={{ scale: 0.9 }}>
@@ -31,7 +31,7 @@ function Navbar() {
 
         <div className="flex flex-start justify-between items-center ml-20">
           {links.map(link => (
-            <Link className={`mx-10 ${location.pathname === link.reference && "bg-gradient-to-r from-koifish-white to-koifish-red text-transparent bg-clip-text"}`} key={link.name} to={link.reference}>
+            <Link className={`clip mx-10 ${location.pathname === link.reference && "underline"}`} key={link.name} to={link.reference}>
               <motion.div whileHover={{ translateY: -2 }}>
                 {link.name}
               </motion.div>
@@ -54,7 +54,7 @@ function Navbar() {
         </Link>
 
       </div>
-    </div>
+    </nav>
   );
 }
 
