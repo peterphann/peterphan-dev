@@ -1,26 +1,31 @@
 import Home from './pages/Home';
 import BackgroundOverlay from './components/BackgroundOverlay';
 import Navbar from './components/Navbar';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import About from './pages/About';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
+  const location = useLocation();
 
   return (
-    <BrowserRouter>
-      <BackgroundOverlay/>
-      <Navbar/>
+    <>
+      <BackgroundOverlay />
+      <Navbar />
       <div className='mt-20'>
-        <Routes>
-          <Route index path="/" element={<Home/>}></Route>
-          <Route path="/about" element={<About/>}></Route>
-          <Route path="/portfolio" element={<Portfolio/>}></Route>
-          <Route path="/contact" element={<Contact/>}></Route>
-        </Routes>
+        <AnimatePresence mode='wait'>
+          <Routes location={location} key={location.pathname}>
+            <Route index path="/" element={<Home />}></Route>
+            <Route path="/about" element={<About />}></Route>
+            <Route path="/portfolio" element={<Portfolio />}></Route>
+            <Route path="/contact" element={<Contact />}></Route>
+          </Routes>
+        </AnimatePresence>
       </div>
-    </BrowserRouter>
+    </>
+
   );
 }
 
