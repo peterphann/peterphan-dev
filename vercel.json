@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/meepworld/(.*)",
+            "destination": "https://meepworld.peterphan.dev/$1"
+        }
+    ]
+}
