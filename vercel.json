@@ -1,8 +1,4 @@
 {
-    "rewrites": [
-        {
-            "source": "/meepworld/:path*",
-            "destination": "https://meepworld.peterphan.dev/:path*"
-        }
-    ]
-}
+    "rewrites": [{ "source": "/(.*)", "destination": "/" }]
+  }
+  
