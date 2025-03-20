@@ -60,9 +60,9 @@ export default function Sidebar({ className }: { className?: string }) {
         portfolio
       </Link>
 
-      <Link href={"/"} className={"hover:opacity-70 self-start"}>
+      <a href={"https://drive.google.com/file/d/1WRbdnvH9_3erOKgNFdHlEiQaqIT2N8TA/view?usp=sharing"} rel={"noopener noreferrer"} target={"_blank"} className={"hover:opacity-70 self-start"}>
         resume
-      </Link>
+      </a>
     </div>
 
     <SidebarSection>
