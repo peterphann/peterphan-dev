@@ -48,15 +48,15 @@ export default function Sidebar({ className }: { className?: string }) {
         peter phan
       </Link>
 
-      <Link href={"/"} className={"hover:opacity-70 self-start hover:cursor-normal"}>
+      <Link href={"/"} className={"opacity-30 self-start hover:cursor-default"}>
         about
       </Link>
 
-      <Link href={"/"} className={"hover:opacity-70 self-start"}>
+      <Link href={"/"} className={"opacity-30 self-start hover:cursor-default"}>
         experience
       </Link>
 
-      <Link href={"/"} className={"hover:opacity-70 self-start"}>
+      <Link href={"/"} className={"opacity-30 self-start hover:cursor-default"}>
         portfolio
       </Link>
 
