@@ -22,7 +22,7 @@ function SidebarLink({ name, href, type="site" }: { name: string, href: string, 
 function SidebarLinks({ children, title }: { children: ReactNode, title: string }) {
   return <Accordion type={"single"} defaultValue={"item"} collapsible className={"flex flex-col  text-neutral-700"}>
     <AccordionItem value={"item"}>
-      <AccordionTrigger className={"text-gray-400 p-0 tracking-widest mb-3 text-xs uppercase hover:cursor-pointer"}>
+      <AccordionTrigger className={"text-neutral-400 p-0 tracking-widest mb-3 text-xs uppercase hover:cursor-pointer"}>
         {title}
       </AccordionTrigger>
 
@@ -60,7 +60,7 @@ export default function Sidebar({ className }: { className?: string }) {
         portfolio
       </Link>
 
-      <a href={"https://drive.google.com/file/d/1WRbdnvH9_3erOKgNFdHlEiQaqIT2N8TA/view?usp=sharing"} rel={"noopener noreferrer"} target={"_blank"} className={"hover:opacity-70 self-start"}>
+      <a href={"https://drive.google.com/file/d/1k1LUpu4hZubLqOY7UYrXXTML5EW0vLL3/view?usp=sharing"} rel={"noopener noreferrer"} target={"_blank"} className={"hover:opacity-70 self-start"}>
         resume
       </a>
     </div>
