@@ -13,7 +13,7 @@ export default function Home() {
 
     <div className={"mt-20 h-96 flex justify-center items-center"}>
       <div className={""}>
-        <Image src={"/images/pandi.png"} alt={"Panda"} width={200} height={200} />
+        <Image src={"/images/pandi.png"} alt={"Panda"} width={400} height={400} />
       </div>
     </div>
   </main>;
