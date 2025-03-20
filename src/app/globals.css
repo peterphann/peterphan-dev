@@ -126,30 +126,35 @@ html, body {
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
+  to {
     opacity: 1;
   }
 }
 
 @keyframes unblur {
-  0% {
-    filter: blur(5px);
-  }
-  100% {
+  to {
     filter: blur(0px);
   }
 }
 
-@utility fade-in {
+@keyframes rise {
+  to {
+    transform: translateY(0);
+  }
+}
+
+@utility animate-fade-in {
   opacity: 0;
   animation: fadeIn 2s 0.25s forwards;
 }
 
-@utility unblur {
-  filter: blur(3px);
+@utility animate-unblur {
+  filter: blur(1px);
   animation: unblur 2s forwards;
+}
+
+@utility animate-rise {
+  transform: translateY(-10px);
+  animation: rise 2s 0.25s forwards;
 }
 

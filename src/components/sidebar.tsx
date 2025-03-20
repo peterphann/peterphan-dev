@@ -42,27 +42,28 @@ function SidebarSection({ children }: { children: ReactNode }) {
 
 export default function Sidebar({ className }: { className?: string }) {
 
-  return <nav className={cn("w-60 h-full inline-flex flex-col border-r-gray-200 border-r-1", className)}>
+  return <nav className={cn("w-68 h-full inline-flex flex-col border-r-gray-200 border-r-1", className)}>
     <div className={"px-8 py-8 flex flex-col gap-y-3 font-medium text-xl text-neutral-700"}>
       <Link href={"/"} className={"transition-transform duration-500 text-black text-3xl font-bold mb-2 hover:scale-105 origin-left"}>
         peter phan
       </Link>
 
-      <Link href={"/"} className={"opacity-30 self-start hover:cursor-default"}>
-        about
-      </Link>
-
-      <Link href={"/"} className={"opacity-30 self-start hover:cursor-default"}>
+      <Link href={"#experience"} className={"hover:opacity-70 self-start"}>
         experience
       </Link>
 
-      <Link href={"/"} className={"opacity-30 self-start hover:cursor-default"}>
+      <Link href={"#projects"} className={"hover:opacity-70 self-start"}>
         portfolio
+      </Link>
+
+      <Link href={"#about"} className={"hover:opacity-70 self-start"}>
+        about
       </Link>
 
       <a href={"https://drive.google.com/file/d/1k1LUpu4hZubLqOY7UYrXXTML5EW0vLL3/view?usp=sharing"} rel={"noopener noreferrer"} target={"_blank"} className={"hover:opacity-70 self-start"}>
         resume
       </a>
+
     </div>
 
     <SidebarSection>

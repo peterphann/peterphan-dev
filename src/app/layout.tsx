@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sequelSans.className} antialiased flex fade-in`}
+        className={`${sequelSans.className} antialiased flex animate-fade-in`}
       >
         <Sidebar className={"hidden md:block"} />
         <div className={"p-16 flex-1 overflow-y-auto"}>

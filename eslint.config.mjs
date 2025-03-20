@@ -15,7 +15,6 @@ const eslintConfig = [
     rules: {
       "semi": "error",
       "quotes": "error",
-      "indent": ["error", 2],
     }
   }),
 ];

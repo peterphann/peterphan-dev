@@ -1,20 +1,29 @@
-import Image from "next/image";
+import ProjectsSection from "@/components/sections/projects-section";
+import StackSection from "@/components/sections/stack-section";
+import ExperienceSection from "@/components/sections/experience-section";
+import AboutSection from "@/components/sections/about-section";
 
 export default function Home() {
 
-  return <main className={"space-y-4 unblur"}>
-    <h2 className={"font-medium text-3xl"}>
-      this website is under construction, check back later!
-    </h2>
+  return <main className={"space-y-4"}>
+    <section className={"w-full pb-4"}>
+      <p className={"w-full text-5xl mb-2"}>
+        Hello, I&#39;m Peter!
+      </p>
 
-    <h2 className={"font-medium text-3xl"}>
-      for the time being, see the links to the side :)
-    </h2>
-
-    <div className={"mt-20 h-96 flex justify-center items-center"}>
-      <div className={"w-60"}>
-        <Image src={"/images/pandi.png"} alt={"Panda"} width={400} height={400} />
+      <div className={"text-xl font-light text-neutral-500"}>
+        <p>Software Engineer</p>
+        <p>Texas A&M University</p>
       </div>
-    </div>
+    </section>
+
+    <ExperienceSection />
+
+    <StackSection />
+
+    <ProjectsSection />
+
+    <AboutSection />
+
   </main>;
 }
