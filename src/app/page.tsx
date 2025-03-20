@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Home() {
 
-  return <main className={"space-y-4"}>
+  return <main className={"space-y-4 unblur"}>
     <h2 className={"font-medium text-3xl"}>
       this website is under construction, check back later!
     </h2>
