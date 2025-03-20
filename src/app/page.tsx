@@ -7,9 +7,9 @@ import Image from "next/image";
 export default function Home() {
 
   return <main className={"space-y-4"}>
-    <section className={"w-full pb-4 flex justify-between items-center"}>
+    <section className={"w-full pb-4 flex flex-col md:flex-row md:justify-between md:items-center"}>
       <div>
-        <p className={"w-full text-5xl mb-2"}>
+        <p className={"w-full text-4xl md:text-5xl mb-2"}>
           Hello, I&#39;m Peter!
         </p>
 
@@ -19,7 +19,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Image src={"/images/headshot.jpg"} className={"rounded-full w-50 h-50"} alt={""} width={500} height={500} />
+      <Image src={"/images/headshot.jpg"} className={"rounded-full self-center md:self-auto mt-4 md:mt-0 w-50 h-50"} alt={""} width={500} height={500} />
     </section>
 
     <ExperienceSection />
