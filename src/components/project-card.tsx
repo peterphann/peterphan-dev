@@ -1,32 +1,82 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Trophy, Users } from "lucide-react";
 
 interface ProjectProps {
-  href?: string,
-  src: string,
-  title: string,
-  description: string,
-  date: string
+  href?: string;
+  src: string;
+  title: string;
+  description: string;
+  date: string;
+  award?: string;
 }
 
-export default function ProjectCard({ href="", src, title, description, date }: ProjectProps) {
+export default function ProjectCard({
+  href = "",
+  src,
+  title,
+  description,
+  date,
+  award,
+}: ProjectProps) {
+  return (
+    <div className="group cursor-pointer transform transition-all duration-300 hover:scale-[1.02]">
+      <div className="relative overflow-hidden bg-gray-50 shadow-[0px_16px_28px_-12px_rgba(0,_0,_0,_0.1)] rounded-md transition-all duration-300 hover:shadow-[0px_20px_35px_-12px_rgba(0,_0,_0,_0.2)] hover:shadow-blue-500/20">
+        <Link href={href} className="block relative">
+          {/* Image with overlay effect */}
+          <div className="relative overflow-hidden rounded-md">
+            <Image
+              className="w-full rounded-md h-auto transition-transform duration-500 group-hover:scale-105"
+              src={src}
+              alt={title}
+              width={800}
+              height={800}
+            />
 
-  return <div>
-    <div className={"bg-gray-50 shadow-[0px_16px_28px_-12px_rgba(0,_0,_0,_0.1)] border border-[#f0f1f3] rounded-md"}>
-      <Link href={href}>
-        <Image className={"w-full rounded-md h-auto"} src={src} alt={"Project"} width={800} height={800} />
-      </Link>
-    </div>
+            {/* Subtle overlay on hover */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-md" />
 
-    <div className={"mt-4 flex justify-between items-start"}>
-      <div className={"text-xl font-medium"}>
-        <p>{title}</p>
-        <p className={"text-neutral-400"}>{description}</p>
+            {/* Animated border */}
+            <div className="absolute inset-0 rounded-md border-2 border-transparent transition-all duration-300 group-hover:border-blue-500/30" />
+
+            {/* Award indicator */}
+            {award && (
+              <div
+                className={`absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-bold flex items-center gap-1 shadow-lg border ${
+                  award.toLowerCase().includes("winner") ||
+                  award.toLowerCase().includes("place")
+                    ? "bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 text-neutral-900 border-yellow-300"
+                    : "bg-gradient-to-r from-blue-500 via-blue-600 to-blue-500 text-white border-blue-400"
+                }`}
+              >
+                {award.toLowerCase().includes("user") ? (
+                  <Users size={12} />
+                ) : (
+                  <Trophy size={12} />
+                )}
+                {award}
+              </div>
+            )}
+          </div>
+        </Link>
       </div>
 
-      <div className={"text-neutral-400 font-light"}>
-        {date}
+      <div className="mt-4 flex justify-between items-start">
+        <div className="text-xl font-medium">
+          <p className="transition-colors duration-200 group-hover:text-blue-600">
+            {title}
+          </p>
+          {description && (
+            <p className="text-neutral-400 transition-colors duration-200 group-hover:text-neutral-500">
+              {description}
+            </p>
+          )}
+        </div>
+
+        <div className="text-neutral-400 font-light transition-all duration-200 group-hover:text-blue-500 group-hover:transform group-hover:translate-x-1">
+          {date}
+        </div>
       </div>
     </div>
-  </div>;
+  );
 }

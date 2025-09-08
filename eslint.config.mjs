@@ -14,7 +14,7 @@ const eslintConfig = [
     extends: ["next/core-web-vitals", "prettier", "next/typescript"],
     rules: {
       "semi": "error",
-      "quotes": "error",
+      "quotes": ["error", "double", { "allowTemplateLiterals": true }],
     }
   }),
 ];
