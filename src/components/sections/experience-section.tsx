@@ -18,7 +18,7 @@ export default function ExperienceSection() {
 
         <div className="space-y-3">
           {experiences.map((experience, index) => (
-            <ExperienceCard key={index} experience={experience} index={index} />
+            <ExperienceCard key={index} experience={experience} />
           ))}
         </div>
       </div>
