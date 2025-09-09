@@ -5,15 +5,11 @@ import Image from "next/image";
 import { ExperienceItem } from "@/types/experience";
 import TechCard from "@/components/tech-card";
 
-interface MiniExperienceCardProps {
+interface ExperienceCardProps {
   experience: ExperienceItem;
-  index: number;
 }
 
-export default function MiniExperienceCard({
-  experience,
-  index,
-}: MiniExperienceCardProps) {
+export default function ExperienceCard({ experience }: ExperienceCardProps) {
   return (
     <div
       className={cn(

@@ -71,8 +71,9 @@ export default function Home() {
                         Want to reach out?
                       </DialogTitle>
                       <DialogDescription className="text-base">
-                        I'd love to chat with you! Whether it's about potential
-                        opportunities, collaborations, or just to say hello.
+                        I&apos;d love to chat with you! Whether it&apos;s about
+                        potential opportunities, collaborations, or just to say
+                        hello.
                       </DialogDescription>
                     </DialogHeader>
                     <div className="space-y-4">
@@ -82,13 +83,14 @@ export default function Home() {
                         </p>
                         <a
                           href="mailto:peterlephan@gmail.com"
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-200 font-medium"
+                          className="group inline-flex items-center gap-2 px-4 py-2 text-sm rounded-xl transition-all duration-300 hover:scale-105 relative overflow-hidden backdrop-blur-md bg-gradient-to-br from-white/20 via-white/10 to-white/5 border border-white/20 hover:border-white/30 text-white hover:shadow-lg hover:shadow-white/10 font-medium"
                         >
                           <svg
                             width="18"
                             height="18"
                             viewBox="0 0 24 24"
                             fill="currentColor"
+                            className="transition-all duration-300 group-hover:scale-110 group-hover:text-white/90"
                           >
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                           </svg>

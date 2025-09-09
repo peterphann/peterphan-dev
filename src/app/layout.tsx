@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ReactNode } from "react";
 import { sequelSans } from "@/util/fonts";
-import Sidebar from "@/components/sidebar";
+// import Sidebar from "@/components/sidebar";
 import BackgroundStars from "@/components/background-stars";
 
 export const metadata: Metadata = {

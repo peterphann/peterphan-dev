@@ -1,6 +1,6 @@
 "use client";
 
-import MiniExperienceCard from "@/components/mini-experience-card";
+import ExperienceCard from "@/components/mini-experience-card";
 import { experiences } from "@/data/experiences";
 
 export default function ExperienceSection() {
@@ -18,11 +18,7 @@ export default function ExperienceSection() {
 
         <div className="space-y-3">
           {experiences.map((experience, index) => (
-            <MiniExperienceCard
-              key={index}
-              experience={experience}
-              index={index}
-            />
+            <ExperienceCard key={index} experience={experience} index={index} />
           ))}
         </div>
       </div>
