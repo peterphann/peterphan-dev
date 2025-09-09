@@ -21,7 +21,7 @@ export default function ProjectCard({
 }: ProjectProps) {
   return (
     <div className="group cursor-pointer transform transition-all duration-300 hover:scale-[1.02]">
-      <div className="relative overflow-hidden bg-gray-50 shadow-[0px_16px_28px_-12px_rgba(0,_0,_0,_0.1)] rounded-md transition-all duration-300 hover:shadow-[0px_20px_35px_-12px_rgba(0,_0,_0,_0.2)] hover:shadow-blue-500/20">
+      <div className="relative overflow-hidden bg-muted/30 shadow-[0px_16px_28px_-12px_rgba(0,_0,_0,_0.1)] rounded-md transition-all duration-300 hover:shadow-[0px_20px_35px_-12px_rgba(0,_0,_0,_0.2)] hover:shadow-primary/20">
         <Link href={href} className="block relative">
           {/* Image with overlay effect */}
           <div className="relative overflow-hidden rounded-md">
@@ -37,7 +37,7 @@ export default function ProjectCard({
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded-md" />
 
             {/* Animated border */}
-            <div className="absolute inset-0 rounded-md border-2 border-transparent transition-all duration-300 group-hover:border-blue-500/30" />
+            <div className="absolute inset-0 rounded-md border-2 border-transparent transition-all duration-300 group-hover:border-primary/30" />
 
             {/* Award indicator */}
             {award && (
@@ -63,17 +63,17 @@ export default function ProjectCard({
 
       <div className="mt-4 flex justify-between items-start">
         <div className="text-xl font-medium">
-          <p className="transition-colors duration-200 group-hover:text-blue-600">
+          <p className="text-card-foreground transition-colors duration-200 group-hover:text-primary">
             {title}
           </p>
           {description && (
-            <p className="text-neutral-400 transition-colors duration-200 group-hover:text-neutral-500">
+            <p className="text-muted-foreground transition-colors duration-200 group-hover:text-muted-foreground/80">
               {description}
             </p>
           )}
         </div>
 
-        <div className="text-neutral-400 font-light transition-all duration-200 group-hover:text-blue-500 group-hover:transform group-hover:translate-x-1">
+        <div className="text-muted-foreground font-light transition-all duration-200 group-hover:text-primary group-hover:transform group-hover:translate-x-1">
           {date}
         </div>
       </div>

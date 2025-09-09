@@ -3,6 +3,7 @@ import "./globals.css";
 import { ReactNode } from "react";
 import { sequelSans } from "@/util/fonts";
 import Sidebar from "@/components/sidebar";
+import BackgroundStars from "@/components/background-stars";
 
 export const metadata: Metadata = {
   title: "Peter Phan",
@@ -26,8 +27,9 @@ export default function RootLayout({
       <body
         className={`${sequelSans.className} antialiased flex animate-fade-in`}
       >
-        <Sidebar className={"hidden md:block"} />
-        <div className={"p-16 flex-1 overflow-y-auto"}>{children}</div>
+        <BackgroundStars />
+        {/* <Sidebar className={"hidden md:block"} /> */}
+        <div className={"p-8 lg:p-16 flex-1 overflow-y-auto"}>{children}</div>
       </body>
     </html>
   );

@@ -130,20 +130,18 @@ export default function Sidebar({ className }: { className?: string }) {
         <Link
           href={"/"}
           className={
-            "transition-transform duration-500 text-sidebar-foreground text-3xl font-bold mb-2 hover:scale-105 origin-left"
+            "group transition-all duration-700 ease-out text-sidebar-foreground text-3xl font-bold mb-2 hover:scale-105 origin-left relative"
           }
           onClick={
             pathname === "/" ? (e) => handleScroll(e, "home") : undefined
           }
         >
-          peter phan
-        </Link>
-
-        <Link
-          {...getNavigationProps("experience")}
-          className={"hover:opacity-70 self-start"}
-        >
-          experience
+          <span className="group-hover:opacity-0 transition-opacity duration-700">
+            peter phan
+          </span>
+          <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-r from-rose-400 via-amber-100 to-slate-700 bg-clip-text text-transparent">
+            peter phan
+          </span>
         </Link>
 
         <Link

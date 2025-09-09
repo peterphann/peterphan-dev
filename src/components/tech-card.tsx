@@ -6,9 +6,14 @@ import Image from "next/image";
 interface TechCardProps {
   technology: Technology;
   className?: string;
+  size?: number;
 }
 
-export default function TechCard({ technology, className }: TechCardProps) {
+export default function TechCard({
+  technology,
+  className,
+  size = 8,
+}: TechCardProps) {
   const { icon, name, src } = technology;
   return (
     <HoverCard openDelay={0} closeDelay={0}>
@@ -17,16 +22,19 @@ export default function TechCard({ technology, className }: TechCardProps) {
           "hover:scale-110 w-8 h-8 cursor-pointer transition-all duration-300 flex items-center justify-center",
           className,
         )}
+        style={{ width: `${size * 4}px`, height: `${size * 4}px` }}
       >
         {icon ? (
-          <i style={{ fontSize: "32px" }} className={cn(icon)}></i>
+          <i style={{ fontSize: `${size * 4}px` }} className={cn(icon)}></i>
         ) : (
-          src && <Image src={src} alt={name} width={32} height={32} />
+          src && (
+            <Image src={src} alt={name} width={size * 4} height={size * 4} />
+          )
         )}
       </HoverCardTrigger>
       <HoverCardContent
         side="top"
-        className="backdrop-blur-xs text-sm bg-gradient-to-b from-white/5 to-white/0 w-max py-1 px-3 border-none shadow-lg rounded-lg"
+        className="backdrop-blur-sm bg-gradient-to-br from-white/5 to-white/0 border border-white/10 text-white w-max py-1.5 px-4 shadow-lg rounded-lg text-sm font-medium transition-all duration-300"
       >
         {name}
       </HoverCardContent>

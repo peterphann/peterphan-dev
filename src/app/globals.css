@@ -48,6 +48,12 @@ body {
   height: 100%;
 }
 
+.tsparticles-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+}
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
