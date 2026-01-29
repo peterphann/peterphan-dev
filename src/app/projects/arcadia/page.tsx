@@ -27,6 +27,22 @@ import {
   supabase,
 } from "@/data/technologies";
 
+const fadeInUp = {
+  initial: { opacity: 0, y: 15, scale: 0.95 },
+  whileInView: { opacity: 1, y: 0, scale: 1 },
+  transition: { duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] },
+};
+
+const staggerContainer = {
+  initial: {},
+  whileInView: {
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.15,
+    },
+  },
+};
+
 const arcadiaTech = [
   react,
   typescript,
@@ -43,6 +59,8 @@ export default function Arcadia() {
     once: true,
     margin: "-100px",
   });
+
+  const githubLink = "https://github.com/ericliu-12/hacktx24";
 
   return (
     <div className="min-h-screen bg-neutral-900 relative overflow-hidden">
@@ -122,6 +140,7 @@ export default function Arcadia() {
               </div>
 
               <TeamMembersDialog
+                githubLink={githubLink}
                 teamMembers={arcadiaTeam}
                 projectName="Arcadia"
               >
@@ -161,7 +180,7 @@ export default function Arcadia() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
             >
               <a
-                href="https://github.com/ericliu-12/hacktx24"
+                href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg transition-colors border border-neutral-700 hover:border-neutral-600"
@@ -243,11 +262,23 @@ export default function Arcadia() {
               </h2>
             </div>
             <div className="bg-neutral-800/30 backdrop-blur-sm rounded-2xl px-8 py-6 border border-neutral-700/50">
-              <div className="grid grid-cols-4 md:grid-cols-7 gap-6 justify-items-center">
-                {arcadiaTech.map((tech) => (
-                  <TechCard key={tech.name} technology={tech} />
+              <motion.div
+                className="grid grid-cols-4 md:grid-cols-7 gap-6 justify-items-center"
+                variants={staggerContainer}
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-50px" }}
+              >
+                {arcadiaTech.map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    variants={fadeInUp}
+                    custom={index}
+                  >
+                    <TechCard technology={tech} />
+                  </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </div>
           </motion.section>
           {/* <motion.section

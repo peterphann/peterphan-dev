@@ -67,7 +67,7 @@ export default function ProjectCard({
             {title}
           </p>
           {description && (
-            <p className="text-muted-foreground transition-colors duration-200 group-hover:text-muted-foreground/80">
+            <p className="text-muted-foreground transition-colors text-sm font-light duration-200 group-hover:text-muted-foreground/80">
               {description}
             </p>
           )}

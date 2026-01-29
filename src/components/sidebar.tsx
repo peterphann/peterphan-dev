@@ -160,7 +160,7 @@ export default function Sidebar({ className }: { className?: string }) {
 
         <a
           href={
-            "https://drive.google.com/file/d/1k1LUpu4hZubLqOY7UYrXXTML5EW0vLL3/view?usp=sharing"
+            "https://drive.google.com/file/d/1Y5qd0qAw_laI-XHPITOb0NmzW6tKEJJ8/view?usp=sharing"
           }
           rel={"noopener noreferrer"}
           target={"_blank"}

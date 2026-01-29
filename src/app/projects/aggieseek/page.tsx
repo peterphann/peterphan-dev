@@ -30,17 +30,24 @@ import {
 } from "@/data/technologies";
 
 const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+  initial: { opacity: 0, y: 30, scale: 0.8 },
+  whileInView: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.34, 1.56, 0.64, 1],
+    },
+  },
 };
 
 const staggerContainer = {
   initial: {},
   whileInView: {
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
+      staggerChildren: 0.08,
+      delayChildren: 0.2,
     },
   },
 };
@@ -57,6 +64,8 @@ const aggieSeekTech = [
 ];
 
 export default function AggieSeek() {
+  const githubLink = "https://github.com/aggieseek";
+
   return (
     <div className="min-h-screen bg-neutral-900 relative overflow-hidden">
       <div className="absolute inset-0">
@@ -139,6 +148,7 @@ export default function AggieSeek() {
               </div>
 
               <TeamMembersDialog
+                githubLink={githubLink}
                 teamMembers={aggieSeekTeam}
                 projectName="AggieSeek"
               >
@@ -181,7 +191,7 @@ export default function AggieSeek() {
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
               <a
-                href="https://github.com/aggieseek"
+                href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg transition-colors border border-neutral-700 hover:border-neutral-600"

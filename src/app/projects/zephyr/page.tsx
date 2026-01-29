@@ -12,20 +12,19 @@ import {
   Zap,
   Link2,
   Trophy,
-  Linkedin,
 } from "lucide-react";
 import TechCard from "@/components/tech-card";
 import { TeamMembersDialog } from "@/components/team-members-dialog";
-import { flockTeam } from "@/data/team-members";
+import { zephyrTeam } from "@/data/team-members";
 import { cn } from "@/lib/utils";
 import { inter } from "@/util/fonts";
 import {
-  googleMaps,
-  openai,
-  postgresql,
-  react,
-  tailwind,
-  typescript,
+  auth0,
+  fastapi,
+  gemini,
+  mongodb,
+  next,
+  vultr,
 } from "@/data/technologies";
 
 const fadeInUp = {
@@ -44,15 +43,15 @@ const staggerContainer = {
   },
 };
 
-const flockTech = [react, typescript, postgresql, tailwind, openai, googleMaps];
+const zephyrTech = [next, mongodb, gemini, fastapi, auth0, vultr];
 
-export default function Flock() {
+export default function Zephyr() {
   const techStackRef = useRef(null);
   const isTechStackInView = useInView(techStackRef, {
     once: true,
     margin: "-100px",
   });
-  const githubLink = "https://github.com/peterphann/tamuhack25";
+  const githubLink = "https://github.com/peterphann/zephyr";
 
   return (
     <div className="min-h-screen bg-neutral-900 relative overflow-hidden">
@@ -71,12 +70,11 @@ export default function Flock() {
 
       <div className="relative z-10">
         <div className="max-w-4xl mx-auto px-6 py-12">
-          {/* Hero Section */}
           <div className="mb-16">
             <div className="relative rounded-2xl overflow-hidden mb-8 group">
               <Image
-                src="/images/flock.png"
-                alt="Flock"
+                src="/images/zephyr.png"
+                alt="Zephyr"
                 width={1600}
                 height={800}
                 className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105"
@@ -86,7 +84,7 @@ export default function Flock() {
                 <div className="flex flex-wrap gap-2 mb-4">
                   <span className="px-3 py-1 bg-gradient-to-r from-yellow-400/30 via-orange-400/30 to-yellow-400/30 text-yellow-200 rounded-full text-sm border border-yellow-400/50 flex items-center gap-1 backdrop-blur-sm">
                     <Trophy size={14} />
-                    2nd Place, TAMUhack 2025
+                    Best Use of Gemini, TAMUhack 2026
                   </span>
                   <span className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm border border-blue-500/30">
                     Web Application
@@ -105,7 +103,7 @@ export default function Flock() {
                   inter.className,
                 )}
               >
-                Flock
+                zephyr
               </motion.h1>
 
               <motion.div
@@ -131,9 +129,11 @@ export default function Flock() {
                       <Trophy className="text-neutral-900" size={24} />
                     </motion.div>
                     <div className="text-center">
-                      <div className="font-bold leading-tight">2nd Place</div>
+                      <div className="font-bold leading-tight">
+                        Best Use of Gemini API
+                      </div>
                       <div className="text-xs font-medium opacity-75">
-                        TAMUhack 2025
+                        TAMUhack 2026
                       </div>
                     </div>
                   </div>
@@ -146,9 +146,8 @@ export default function Flock() {
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
                 className="text-xl text-neutral-300 max-w-2xl mx-auto leading-relaxed"
               >
-                Transform flight delays and cancellations into exciting trips by
-                generating itineraries and gaining access to hotel vouchers and
-                car rentals near you!
+                Get AI-powered flight guidance and gentle support, designed to
+                make your flight experience a breeze.
               </motion.p>
             </div>
 
@@ -165,13 +164,13 @@ export default function Flock() {
                     Timeline
                   </span>
                 </div>
-                <p className="text-white font-semibold">Jan. 2025</p>
+                <p className="text-white font-semibold">Jan. 2026</p>
               </div>
 
               <TeamMembersDialog
                 githubLink={githubLink}
-                teamMembers={flockTeam}
-                projectName="Flock"
+                teamMembers={zephyrTeam}
+                projectName="Zephyr"
               >
                 <div className="bg-neutral-800/50 backdrop-blur-sm rounded-xl p-6 border border-neutral-700/50 hover:border-green-500/30 transition-all duration-300 cursor-pointer group">
                   <div className="flex items-center gap-3 mb-2">
@@ -218,7 +217,7 @@ export default function Flock() {
                 View on GitHub
               </a>
               <a
-                href="https://flockingawesome.tech/"
+                href="https://zephyr-air.tech/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
@@ -245,7 +244,7 @@ export default function Flock() {
               </h3>
               <div className="flex flex-col md:flex-row gap-4">
                 <a
-                  href="https://devpost.com/software/flock-ayxf75"
+                  href="https://devpost.com/software/zephyr-x0rwqc"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex-1 bg-neutral-800/30 backdrop-blur-sm rounded-xl p-4 border border-neutral-700/50 hover:border-blue-500/30 transition-all duration-300 hover:bg-neutral-800/50 relative"
@@ -264,32 +263,7 @@ export default function Flock() {
                         Devpost
                       </h4>
                       <p className="text-neutral-400 text-sm group-hover:text-neutral-300 transition-colors">
-                        Our submission to TAMUhack 2025
-                      </p>
-                    </div>
-                  </div>
-                </a>
-                <a
-                  href="https://www.linkedin.com/posts/peterlphan_last-month-i-had-the-opportunity-to-participate-activity-7300253052811325443-vjxd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex-1 bg-neutral-800/30 backdrop-blur-sm rounded-xl p-4 border border-neutral-700/50 hover:border-blue-500/30 transition-all duration-300 hover:bg-neutral-800/50 relative"
-                >
-                  <ExternalLink
-                    className="absolute top-3 right-3 text-neutral-500 group-hover:text-blue-400 transition-colors"
-                    size={14}
-                  />
-                  <div className="flex items-start gap-3">
-                    <Linkedin
-                      className="text-blue-400 group-hover:text-blue-300 transition-colors mt-1"
-                      size={18}
-                    />
-                    <div>
-                      <h4 className="text-white font-medium mb-1 group-hover:text-blue-100 transition-colors">
-                        LinkedIn
-                      </h4>
-                      <p className="text-neutral-400 text-sm group-hover:text-neutral-300 transition-colors">
-                        LinkedIn post about my experience!
+                        Our submission to TAMUhack 2026
                       </p>
                     </div>
                   </div>
@@ -323,7 +297,7 @@ export default function Flock() {
                 whileInView="whileInView"
                 viewport={{ once: true, margin: "-50px" }}
               >
-                {flockTech.map((tech, index) => (
+                {zephyrTech.map((tech, index) => (
                   <motion.div
                     key={tech.name}
                     variants={fadeInUp}

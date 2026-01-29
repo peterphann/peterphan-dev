@@ -137,9 +137,45 @@ const leonNguyen: TeamMember = {
   ],
 };
 
+const michaelTran: TeamMember = {
+  id: "michael-tran",
+  name: "Michael Tran",
+  role: "Developer",
+  headshot: "/images/headshots/michael-tran.jpg",
+  socialLinks: [
+    {
+      platform: "LinkedIn",
+      url: "https://www.linkedin.com/in/michtra/",
+      icon: Linkedin,
+      color: "text-blue-400 hover:text-blue-300",
+    },
+    {
+      platform: "Website",
+      url: "https://ttrraann.com/",
+      icon: Globe,
+      color: "text-green-400 hover:text-green-300",
+    },
+  ],
+};
+
+const aaronKim: TeamMember = {
+  id: "aaron-kim",
+  name: "Aaron Kim",
+  role: "Developer",
+  headshot: "/images/headshots/aaron-kim.jpg",
+  socialLinks: [
+    {
+      platform: "LinkedIn",
+      url: "https://www.linkedin.com/in/aarkim/",
+      icon: Linkedin,
+      color: "text-blue-400 hover:text-blue-300",
+    },
+  ],
+};
+
 export const aggieSeekTeam: TeamMember[] = [
-  peterPhan,
-  sophiaPhu,
+  { ...peterPhan, role: "Founder" },
+  { ...sophiaPhu, role: "Full Stack Developer" },
   {
     id: "daniel-zhang",
     name: "Daniel Zhang",
@@ -201,4 +237,11 @@ export const arcadiaTeam: TeamMember[] = [
   { ...leonNguyen, role: "Developer" },
   { ...ericLiu, role: "Developer" },
   { ...ashleyZhang, role: "Developer" },
+];
+
+export const zephyrTeam: TeamMember[] = [
+  { ...peterPhan, role: "Developer" },
+  { ...aaronKim, role: "Developer" },
+  { ...leonNguyen, role: "Developer" },
+  { ...michaelTran, role: "Developer" },
 ];

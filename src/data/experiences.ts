@@ -1,8 +1,11 @@
 import { ExperienceItem } from "@/types/experience";
 import {
   aws,
+  flask,
   next,
   node,
+  postgresql,
+  python,
   react,
   spring,
   tailwind,
@@ -18,13 +21,26 @@ export const experiences: ExperienceItem[] = [
     period: "May '25 - Aug '25",
     imageSrc: "/images/statefarm-logo.png",
     description: [
-      "Migrated a dynamic form catalog from React to Vue.js, rewriting components and state management",
-      "Built CI/CD pipelines to automate infrastructure provisioning and deployment",
-      "Provisioned AWS infrastructure (S3, CloudFront, Route 53) using Terraform for scalable cloud deployments",
-      "Maintained a Spring Boot REST API to serve dynamic PDF documents and employee-specific forms",
-      "Collaborated in Agile development cycles, contributing to daily standups and sprint planning",
+      "Migrated a catalog system serving 2,000+ employees to Vue.js, cutting bundle size by 32% and being featured in the company’s intern spotlight",
+      "Automated deployment workflows with Terraform CI/CD pipelines, eliminating manual deployment steps",
+      "Deployed AWS infrastructure (S3, CloudFront, DynamoDB) for consistent delivery across environments",
+      "Improved responsiveness by replacing client-side searches with indexed server-side queries, reducing latency by 50%",
     ],
     technologies: [vue, aws, spring, terraform, node],
+  },
+  {
+    title: "Founder",
+    company: "AggieSeek",
+    location: "College Station, TX",
+    period: "Jan. '25 - Present",
+    imageSrc: "/images/aggieseek-logo.png",
+    description: [
+      "Founded and led the creation of a full-stack course tracker and analytics platform serving 6,000+ active users",
+      "Designed a Python-based microservice that ingests 100k+ records/min into PostgreSQL, integrating with AWS Lambda for event triggers and SNS for automated notifications",
+      "Deployed the application with Docker and AWS EC2 while cutting costs by 66% through self-hosted optimizations",
+      "Oversaw a 4-person team in Agile sprints and feature planning to ensure steady and collaborative development",
+    ],
+    technologies: [next, postgresql, aws, flask, python],
   },
   {
     title: "Web Developer",

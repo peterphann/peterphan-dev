@@ -18,15 +18,24 @@ export default function ProjectsSection() {
       src: "/images/aggieseek.png",
       href: "/projects/aggieseek",
       title: "AggieSeek",
-      description: "",
-      date: "2024 –",
-      award: "2000+ Users",
+      description: "Course tracking platform for Texas A&M University",
+      date: "2024 -",
+      award: "6000+ Users",
+    },
+    {
+      src: "/images/zephyr.png",
+      href: "/projects/zephyr",
+      title: "Zephyr",
+      description: "AI-powered flight guidance and support",
+      date: "2026",
+      award: "Hackathon Winner",
     },
     {
       src: "/images/flock.png",
       href: "/projects/flock",
       title: "Flock",
-      description: "",
+      description:
+        "Transform flight delays and cancellations into exciting trips",
       date: "2025",
       award: "Hackathon Winner",
     },
@@ -34,14 +43,14 @@ export default function ProjectsSection() {
       src: "/images/arcadia.png",
       href: "/projects/arcadia",
       title: "Arcadia",
-      description: "",
+      description:
+        "An online arcade that combines retro aesthetics with computer vision",
       date: "2024",
     },
   ];
 
   return (
     <section id={"projects"} className={"pt-32"}>
-      {/* Constrained container for better visual balance */}
       <div className="max-w-6xl mx-auto px-4">
         <div className={"text-center mb-12"}>
           <h2
@@ -57,7 +66,6 @@ export default function ProjectsSection() {
           </h2>
         </div>
 
-        {/* Mobile Layout */}
         <div className={"flex flex-col gap-y-8 md:hidden"}>
           {projects.map((project, index) => (
             <div

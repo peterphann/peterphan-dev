@@ -18,6 +18,7 @@ interface TeamMembersDialogProps {
   children: React.ReactNode;
   teamMembers: TeamMember[];
   projectName: string;
+  githubLink: string;
 }
 
 interface SocialLinkButtonProps {
@@ -129,6 +130,7 @@ export function TeamMembersDialog({
   children,
   teamMembers,
   projectName,
+  githubLink,
 }: TeamMembersDialogProps) {
   const [selectedMember, setSelectedMember] = useState<TeamMember>(
     teamMembers[0],
@@ -154,12 +156,10 @@ export function TeamMembersDialog({
             ))}
           </div>
 
-          {/* Selected Member Details */}
           <div className="bg-neutral-800/20 backdrop-blur-sm rounded-2xl p-6 border border-neutral-700/50">
             <TeamMemberDetails member={selectedMember} />
           </div>
 
-          {/* Connect Section */}
           <div className="bg-gradient-to-r from-neutral-800/30 to-neutral-700/30 rounded-xl p-4 border border-neutral-600/50">
             <div className="flex items-center justify-between">
               <div>
@@ -171,7 +171,7 @@ export function TeamMembersDialog({
                 </p>
               </div>
               <a
-                href="https://github.com/aggieseek"
+                href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 bg-neutral-700 hover:bg-neutral-600 text-white rounded-lg transition-colors text-sm"
