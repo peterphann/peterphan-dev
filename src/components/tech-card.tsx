@@ -34,7 +34,7 @@ export default function TechCard({
       </HoverCardTrigger>
       <HoverCardContent
         side="top"
-        className="backdrop-blur-sm bg-gradient-to-br from-white/5 to-white/0 border border-white/10 text-white w-max py-1.5 px-4 shadow-lg rounded-lg text-sm font-medium duration-300"
+        className="tech-tooltip-content backdrop-blur-sm bg-gradient-to-br from-white/5 to-white/0 border border-white/10 text-white w-max py-1.5 px-4 shadow-lg rounded-lg text-sm font-medium"
       >
         {name}
       </HoverCardContent>

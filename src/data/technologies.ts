@@ -143,22 +143,24 @@ export const vultr = {
   src: "https://avatars.githubusercontent.com/u/8527264?s=280&v=4",
 };
 
+export const golang = {
+  name: "Go",
+  icon: "devicon-go-original-wordmark colored",
+};
+
+export const angular = {
+  name: "Angular",
+  src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg",
+};
+
 export const languages: Technology[] = [
   python,
   java,
   typescript,
   cplusplus,
+  golang,
   sql,
-  bash,
 ];
-export const frontend: Technology[] = [
-  react,
-  vue,
-  next,
-  tailwind,
-  html,
-  css,
-  figma,
-];
+export const frontend: Technology[] = [react, vue, next, tailwind, html, css];
 export const backend: Technology[] = [node, spring, postgresql, mongodb];
 export const devops: Technology[] = [git, docker, aws, terraform, nginx];

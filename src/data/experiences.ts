@@ -1,7 +1,9 @@
 import { ExperienceItem } from "@/types/experience";
 import {
+  angular,
   aws,
   flask,
+  golang,
   next,
   node,
   postgresql,
@@ -10,10 +12,29 @@ import {
   spring,
   tailwind,
   terraform,
+  typescript,
   vue,
 } from "./technologies";
 
 export const experiences: ExperienceItem[] = [
+  {
+    title: "Software Development Engineer Intern",
+    company: "Amazon",
+    location: "Seattle, WA",
+    period: "Incoming Fall 2026",
+    imageSrc: "/images/amazon-logo.jpg",
+    description: ["Incoming"],
+    technologies: [],
+  },
+  {
+    title: "Software Engineering Intern",
+    company: "Visa",
+    location: "Austin, TX",
+    period: "May '26 - Present",
+    imageSrc: "/images/visa-logo.png",
+    description: ["Payment Products Development Team"],
+    technologies: [golang, angular, typescript],
+  },
   {
     title: "Software Engineering Intern",
     company: "State Farm",
@@ -35,7 +56,7 @@ export const experiences: ExperienceItem[] = [
     period: "Jan. '25 - Present",
     imageSrc: "/images/aggieseek-logo.png",
     description: [
-      "Founded and led the creation of a full-stack course tracker and analytics platform serving 6,000+ active users",
+      "Founded and led the creation of a full-stack course tracker and analytics platform serving 9,000+ active users",
       "Designed a Python-based microservice that ingests 100k+ records/min into PostgreSQL, integrating with AWS Lambda for event triggers and SNS for automated notifications",
       "Deployed the application with Docker and AWS EC2 while cutting costs by 66% through self-hosted optimizations",
       "Oversaw a 4-person team in Agile sprints and feature planning to ensure steady and collaborative development",
@@ -54,18 +75,18 @@ export const experiences: ExperienceItem[] = [
     ],
     technologies: [next, tailwind, react],
   },
-  {
-    title: "Project Manager",
-    company: "Aggie Coding Club",
-    location: "College Station, TX",
-    period: "Jan. '24 - Dec. '24",
-    imageSrc: "/images/acc-logo.jpg",
-    description: [
-      "Directed a 10+ member team in the development of AggieSeek, a full-stack course tracker for Texas A&M",
-      "Oversaw project planning and sprint execution using Agile workflows to ensure steady team collaboration",
-      "Integrated Better Stack for monitoring and logging to enhance observability, uptime, and debugging efficiency",
-      "Created developer documentation with MkDocs to improve project maintainability and onboarding",
-    ],
-    technologies: [react, next, tailwind],
-  },
+  // {
+  //   title: "Project Manager",
+  //   company: "Aggie Coding Club",
+  //   location: "College Station, TX",
+  //   period: "Jan. '24 - Dec. '24",
+  //   imageSrc: "/images/acc-logo.jpg",
+  //   description: [
+  //     "Directed a 10+ member team in the development of AggieSeek, a full-stack course tracker for Texas A&M",
+  //     "Oversaw project planning and sprint execution using Agile workflows to ensure steady team collaboration",
+  //     "Integrated Better Stack for monitoring and logging to enhance observability, uptime, and debugging efficiency",
+  //     "Created developer documentation with MkDocs to improve project maintainability and onboarding",
+  //   ],
+  //   technologies: [react, next, tailwind],
+  // },
 ];
