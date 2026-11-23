@@ -1,212 +1,114 @@
-import { Project } from "@/types/project";
-import {
-  react,
-  typescript,
-  python,
-  postgresql,
-  tailwind,
-  docker,
-  aws,
-  nginx,
-  threejs,
-  mediapipe,
-  supabase,
-  openai,
-  googleMaps,
-  next,
-  mongodb,
-  gemini,
-  fastapi,
-  auth0,
-  vultr,
-} from "./technologies";
-import {
-  aggieSeekTeam,
-  arcadiaTeam,
-  flockTeam,
-  zephyrTeam,
-} from "./team-members";
+export interface ProjectLink {
+  label: string;
+  url: string;
+  note?: string;
+}
 
-export const aggieseek: Project = {
-  id: "aggieseek",
-  title: "AggieSeek",
-  description:
-    "A modern course discovery platform designed to help Texas A&M students find and explore courses with ease",
-  heroImage: "/images/aggieseek.png",
-  badges: [
-    { text: "Web Application", variant: "blue" },
-    { text: "Active Development", variant: "green" },
-  ],
-  timeline: "Jan. 2024 – Present",
-  team: {
-    count: 4,
-    members: aggieSeekTeam,
-  },
-  role: "Lead Developer",
-  roleSubtitle: "Project Manager",
-  githubLink: "https://github.com/aggieseek",
-  liveSiteLink: "https://aggieseek.net",
-  technologies: [
-    react,
-    typescript,
-    python,
-    postgresql,
-    tailwind,
-    docker,
-    aws,
-    nginx,
-  ],
-  techGridCols: {
-    mobile: 4,
-    desktop: 8,
-  },
-  quickLinks: [
-    {
-      title: "Battalion Feature",
-      description: "Student spotlight article about AggieSeek",
-      url: "https://thebatt.com/life-arts/navigating-student-life-made-easy-by-the-aggie-coding-club/",
-      icon: "newspaper",
-      color: "blue",
-    },
-    {
-      title: "Aggie Coding Club",
-      description: "The organization where this project was born",
-      url: "https://aggiecodingclub.com",
-      icon: "building",
-      color: "purple",
-    },
-  ],
-};
+export interface Project {
+  id: string;
+  title: string;
+  description: string;
+  image: { src: string; width: number; height: number };
+  role: string;
+  timeline: string;
+  /** Event or short date shown beside the entry in the table of contents. */
+  tocDate: string;
+  award?: string;
+  stack: string[];
+  links: ProjectLink[];
+}
 
-export const arcadia: Project = {
-  id: "arcadia",
-  title: "Arcadia",
-  description:
-    "An online arcade that combines retro aesthetics with the technology of the future. Made for HackTX 2024.",
-  heroImage: "/images/arcadia.png",
-  badges: [{ text: "Web Application", variant: "blue" }],
-  timeline: "Nov. 2024",
-  team: {
-    count: 4,
-    members: arcadiaTeam,
+export const projects: Project[] = [
+  {
+    id: "zephyr",
+    title: "Zephyr",
+    description:
+      "Get AI-powered flight guidance and gentle support, designed to make your flight experience a breeze.",
+    image: { src: "/images/zephyr.png", width: 938, height: 635 },
+    role: "Developer",
+    timeline: "Jan 2026",
+    tocDate: "TAMUhack '26",
+    award: "Best Use of Gemini API, TAMUhack 2026",
+    stack: ["Next.js", "MongoDB", "Gemini", "FastAPI", "Auth0", "Vultr"],
+    links: [
+      { label: "Live site", url: "https://zephyr-air.tech/" },
+      { label: "GitHub", url: "https://github.com/peterphann/zephyr" },
+      {
+        label: "Devpost",
+        url: "https://devpost.com/software/zephyr-x0rwqc",
+        note: "Our submission to TAMUhack 2026.",
+      },
+    ],
   },
-  role: "Developer",
-  githubLink: "https://github.com/ericliu-12/hacktx24",
-  liveSiteLink: "https://www.arcadium.tech/",
-  technologies: [
-    react,
-    typescript,
-    postgresql,
-    tailwind,
-    threejs,
-    mediapipe,
-    supabase,
-  ],
-  techGridCols: {
-    mobile: 4,
-    desktop: 7,
+  {
+    id: "flock",
+    title: "Flock",
+    description:
+      "Transform flight delays and cancellations into exciting trips by generating itineraries and gaining access to hotel vouchers and car rentals near you.",
+    image: { src: "/images/flock.png", width: 600, height: 400 },
+    role: "Developer",
+    timeline: "Jan 2025",
+    tocDate: "TAMUhack '25",
+    award: "2nd Place, TAMUhack 2025",
+    stack: ["React", "TypeScript", "PostgreSQL", "Tailwind CSS", "OpenAI", "Google Maps"],
+    links: [
+      { label: "Live site", url: "https://flockingawesome.tech/" },
+      { label: "GitHub", url: "https://github.com/peterphann/tamuhack25" },
+      {
+        label: "Devpost",
+        url: "https://devpost.com/software/flock-ayxf75",
+        note: "Our submission to TAMUhack 2025.",
+      },
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/posts/peterlphan_last-month-i-had-the-opportunity-to-participate-activity-7300253052811325443-vjxd",
+        note: "A post about the experience.",
+      },
+    ],
   },
-  quickLinks: [
-    {
-      title: "Devpost",
-      description: "Our submission to HackTX 2024",
-      url: "https://devpost.com/software/arcadia-xgwt0s",
-      icon: "code",
-      color: "blue",
-    },
-  ],
-};
-
-export const flock: Project = {
-  id: "flock",
-  title: "Flock",
-  description:
-    "Transform flight delays and cancellations into exciting trips by generating itineraries and gaining access to hotel vouchers and car rentals near you!",
-  heroImage: "/images/flock.png",
-  badges: [
-    { text: "2nd Place, TAMUhack 2025", variant: "award", icon: "trophy" },
-    { text: "Web Application", variant: "blue" },
-  ],
-  timeline: "Jan. 2025",
-  team: {
-    count: 4,
-    members: flockTeam,
+  {
+    id: "arcadia",
+    title: "Arcadia",
+    description:
+      "An online arcade that combines retro aesthetics with the technology of the future. Made for HackTX 2024.",
+    image: { src: "/images/arcadia.png", width: 3024, height: 1666 },
+    role: "Developer",
+    timeline: "Nov 2024",
+    tocDate: "HackTX '24",
+    stack: ["React", "TypeScript", "PostgreSQL", "Tailwind CSS", "Three.js", "MediaPipe", "Supabase"],
+    links: [
+      { label: "Live site", url: "https://www.arcadium.tech/" },
+      { label: "GitHub", url: "https://github.com/ericliu-12/hacktx24" },
+      {
+        label: "Devpost",
+        url: "https://devpost.com/software/arcadia-xgwt0s",
+        note: "Our submission to HackTX 2024.",
+      },
+    ],
   },
-  role: "Developer",
-  githubLink: "https://github.com/peterphann/tamuhack25",
-  liveSiteLink: "https://flockingawesome.tech/",
-  technologies: [react, typescript, postgresql, tailwind, openai, googleMaps],
-  techGridCols: {
-    mobile: 4,
-    desktop: 6,
+  {
+    id: "aggieseek",
+    title: "AggieSeek",
+    description:
+      "A modern course discovery platform designed to help Texas A&M students find and explore courses with ease.",
+    image: { src: "/images/aggieseek.png", width: 2000, height: 1400 },
+    role: "Lead Developer, Project Manager",
+    timeline: "Jan 2024 – Present",
+    tocDate: "2024–",
+    stack: ["React", "TypeScript", "Python", "PostgreSQL", "Tailwind CSS", "Docker", "AWS", "Nginx"],
+    links: [
+      { label: "Live site", url: "https://aggieseek.net" },
+      { label: "GitHub", url: "https://github.com/aggieseek" },
+      {
+        label: "Battalion feature",
+        url: "https://thebatt.com/life-arts/navigating-student-life-made-easy-by-the-aggie-coding-club/",
+        note: "Student spotlight article about AggieSeek.",
+      },
+      {
+        label: "Aggie Coding Club",
+        url: "https://aggiecodingclub.com",
+        note: "The organization where this project was born.",
+      },
+    ],
   },
-  quickLinks: [
-    {
-      title: "Devpost",
-      description: "Our submission to TAMUhack 2025",
-      url: "https://devpost.com/software/flock-ayxf75",
-      icon: "code",
-      color: "blue",
-    },
-    {
-      title: "LinkedIn",
-      description: "LinkedIn post about my experience!",
-      url: "https://www.linkedin.com/posts/peterlphan_last-month-i-had-the-opportunity-to-participate-activity-7300253052811325443-vjxd",
-      icon: "linkedin",
-      color: "blue",
-    },
-  ],
-  showAwardBadge: {
-    title: "2nd Place",
-    subtitle: "TAMUhack 2025",
-  },
-};
-
-export const zephyr: Project = {
-  id: "zephyr",
-  title: "zephyr",
-  description:
-    "Get AI-powered flight guidance and gentle support, designed to make your flight experience a breeze.",
-  heroImage: "/images/zephyr.png",
-  badges: [
-    {
-      text: "Best Use of Gemini, TAMUhack 2026",
-      variant: "award",
-      icon: "trophy",
-    },
-    { text: "Web Application", variant: "blue" },
-  ],
-  timeline: "Jan. 2026",
-  team: {
-    count: 4,
-    members: zephyrTeam,
-  },
-  role: "Developer",
-  githubLink: "https://github.com/peterphann/zephyr",
-  liveSiteLink: "https://zephyr-air.tech/",
-  technologies: [next, mongodb, gemini, fastapi, auth0, vultr],
-  techGridCols: {
-    mobile: 4,
-    desktop: 6,
-  },
-  quickLinks: [
-    {
-      title: "Devpost",
-      description: "Our submission to TAMUhack 2026",
-      url: "https://devpost.com/software/zephyr-x0rwqc",
-      icon: "code",
-      color: "blue",
-    },
-  ],
-  showAwardBadge: {
-    title: "Best Use of Gemini API",
-    subtitle: "TAMUhack 2026",
-  },
-};
-
-export const projects = {
-  aggieseek,
-  arcadia,
-  flock,
-  zephyr,
-};
+];
