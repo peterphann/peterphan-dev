@@ -73,7 +73,7 @@ const allParts: ContentsPart[] = [
     id: "contact",
     numeral: "VI",
     title: "Contact",
-    entries: [entry("contact", "6.1", "Email, GitHub, LinkedIn")],
+    entries: [entry("contact", "6.1", "Get in touch")],
   },
 ];
 

@@ -32,9 +32,9 @@ export const experiences: Experience[] = [
     location: "Seattle, WA",
     tocDate: "2026–",
     summary: [
-      "Intering on the L7 DDoS Protection team for AWS WAF.",
+      "L7 DDoS Protection for AWS WAF",
     ],
-    stack: [],
+    stack: ["Python", "AWS", "Scala"],
   },
   {
     company: "Visa",
@@ -42,7 +42,7 @@ export const experiences: Experience[] = [
     roles: [{ title: "Software Engineering Intern", period: "May – Aug. 2026" }],
     location: "Austin, TX",
     tocDate: "2026",
-    summary: ["Worked on the Payment Products Development team."],
+    summary: ["Payment Products Development"],
     stack: ["Go", "Angular", "TypeScript"],
   },
   {
@@ -52,12 +52,13 @@ export const experiences: Experience[] = [
     location: "Bloomington, IL",
     tocDate: "2025",
     summary: [
-      "Migrated a catalog system serving 2,000+ employees to Vue.js, cutting bundle size by 32% and being featured in the company’s intern spotlight.",
-      "Automated deployment workflows with Terraform CI/CD pipelines, eliminating manual deployment steps.",
-      "Deployed AWS infrastructure (S3, CloudFront, DynamoDB) for consistent delivery across environments.",
-      "Improved responsiveness by replacing client-side searches with indexed server-side queries, reducing latency by 50%.",
+      "Customer Communication & Operations Engineering",
+      // "Migrated a catalog system serving 2,000+ employees to Vue.js, cutting bundle size by 32% and being featured in the company’s intern spotlight.",
+      // "Automated deployment workflows with Terraform CI/CD pipelines, eliminating manual deployment steps.",
+      // "Deployed AWS infrastructure (S3, CloudFront, DynamoDB) for consistent delivery across environments.",
+      // "Improved responsiveness by replacing client-side searches with indexed server-side queries, reducing latency by 50%.",
     ],
-    stack: ["Vue", "AWS", "Spring", "Terraform", "Node.js"],
+    stack: ["Vue", "AWS", "Terraform"],
   },
   // {
   //   company: "AggieSeek",

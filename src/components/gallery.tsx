@@ -49,15 +49,20 @@ function Rows({
     <div className={`flex-col gap-3 ${className}`}>
       {rows.map((row, r) => {
         const rowAspect = row.reduce((sum, p) => sum + p.width / p.height, 0);
+        // Position of this row's first photo across the whole gallery, so the
+        // entrance stagger runs left to right, top to bottom.
+        const before = rows.slice(0, r).reduce((n, prev) => n + prev.length, 0);
         return (
           <div key={r} className="flex gap-3">
-            {row.map((photo) => (
+            {row.map((photo, i) => (
               <figure
                 key={photo.src}
-                className="group relative m-0 min-w-0 overflow-hidden bg-wash"
+                className="group relative m-0 min-w-0 animate-page-in overflow-hidden bg-wash motion-reduce:animate-none"
                 style={{
                   flex: `${photo.width / photo.height} 1 0%`,
                   aspectRatio: `${photo.width} / ${photo.height}`,
+                  animationDuration: "550ms",
+                  animationDelay: `${200 + (before + i) * 90}ms`,
                 }}
               >
                 <Image

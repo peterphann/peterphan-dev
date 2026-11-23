@@ -95,6 +95,8 @@ export function PageFade({ children }: { children: ReactNode }) {
       <div
         key={pathname}
         className="animate-page-in motion-reduce:animate-none"
+        // The home page settles in a little more slowly than the others.
+        style={pathname === "/" ? { animationDuration: "550ms" } : undefined}
       >
         {children}
       </div>

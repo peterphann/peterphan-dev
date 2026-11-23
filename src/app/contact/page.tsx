@@ -14,7 +14,7 @@ export default function Contact() {
       <Chapter id={chapterId("6.1")} number="6.1" title="Get in touch">
         <p>
           I&apos;d love to chat, whether it&apos;s about opportunities,
-          collaborations, or just to say hello. Email me at{" "}
+          collaborations, or just to say hello. You can email me at{" "}
           <a
             href={`mailto:${EMAIL}`}
             className="text-link underline decoration-link/40 underline-offset-[3px] hover:decoration-link"

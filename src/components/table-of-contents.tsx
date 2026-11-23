@@ -4,10 +4,33 @@ import { usePathname } from "next/navigation";
 import { TransitionLink } from "@/components/page-transition";
 import { ContentsPart } from "@/data/contents";
 
-function Part({ part, current }: { part: ContentsPart; current: boolean }) {
+/**
+ * The rule under a contents heading. It draws from left to right when the
+ * contents first mount, staggered by position; the sidebar stays mounted
+ * across page changes, so this plays once per page load.
+ */
+function HeadingRule({ index }: { index: number }) {
+  return (
+    <span
+      aria-hidden="true"
+      className="absolute inset-x-0 bottom-0 h-px origin-left animate-rule-right bg-rule motion-reduce:animate-none"
+      style={{ animationDelay: `${100 + index * 70}ms` }}
+    />
+  );
+}
+
+function Part({
+  part,
+  current,
+  index,
+}: {
+  part: ContentsPart;
+  current: boolean;
+  index: number;
+}) {
   return (
     <div>
-      <h2 className="mb-2 border-b border-rule pb-1.5 font-serif text-[17px] font-normal">
+      <h2 className="relative mb-2 pb-1.5 font-serif text-[17px] font-normal">
         <TransitionLink
           href={`/${part.id}`}
           aria-current={current ? "page" : undefined}
@@ -17,6 +40,7 @@ function Part({ part, current }: { part: ContentsPart; current: boolean }) {
         >
           {part.numeral}. {part.title}
         </TransitionLink>
+        <HeadingRule index={index} />
       </h2>
       <ol>
         {part.entries.map((entry) => (
@@ -44,7 +68,7 @@ export default function TableOfContents({ parts }: { parts: ContentsPart[] }) {
   const pathname = usePathname();
   return (
     <nav aria-label="Contents" className="flex flex-col gap-8">
-      <h2 className="border-b border-rule pb-1.5 font-serif text-[17px] font-normal">
+      <h2 className="relative pb-1.5 font-serif text-[17px] font-normal">
         <TransitionLink
           href="/"
           aria-current={pathname === "/" ? "page" : undefined}
@@ -54,11 +78,13 @@ export default function TableOfContents({ parts }: { parts: ContentsPart[] }) {
         >
           Home
         </TransitionLink>
+        <HeadingRule index={0} />
       </h2>
-      {parts.map((part) => (
+      {parts.map((part, i) => (
         <Part
           key={part.id}
           part={part}
+          index={i + 1}
           current={pathname === `/${part.id}`}
         />
       ))}

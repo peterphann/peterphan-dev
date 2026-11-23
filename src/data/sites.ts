@@ -9,7 +9,7 @@ export const sites: Site[] = [
     name: "Duck Maths",
     url: "https://duck.peterphan.dev/",
     description:
-      "A timed math drill that tracks your accuracy, attempts and average time per question.",
+      "A timed math drilling website. This was one of the first websites I ever made!",
   },
   {
     name: "meep world",

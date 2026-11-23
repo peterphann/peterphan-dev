@@ -20,6 +20,32 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "aggieseek",
+    title: "AggieSeek",
+    description:
+      "A course discovery platform designed to help Texas A&M students track and explore courses with ease. Reached 12,000+ users and was featured on Texas A&M's \"The Battalion\".",
+    image: { src: "/images/aggieseek.png", width: 2000, height: 1400 },
+    role: "Founder",
+    timeline: "Jan. 2024 – Present",
+    tocDate: "2024–",
+    award: "12,000+ Users",
+    stack: ["React", "TypeScript", "Python", "PostgreSQL", "Tailwind CSS", "Docker", "AWS", "Nginx"],
+    links: [
+      { label: "Website", url: "https://aggieseek.net" },
+      { label: "GitHub", url: "https://github.com/aggieseek" },
+      {
+        label: "Battalion feature",
+        url: "https://thebatt.com/life-arts/navigating-student-life-made-easy-by-the-aggie-coding-club/",
+        note: "Student spotlight article about AggieSeek.",
+      },
+      {
+        label: "Aggie Coding Club",
+        url: "https://aggiecodingclub.com",
+        note: "The organization where this project was born.",
+      },
+    ],
+  },
+  {
     id: "zephyr",
     title: "Zephyr",
     description:
@@ -66,49 +92,25 @@ export const projects: Project[] = [
       },
     ],
   },
-  {
-    id: "arcadia",
-    title: "Arcadia",
-    description:
-      "An online arcade that combines retro aesthetics with the technology of the future. Made for HackTX 2024.",
-    image: { src: "/images/arcadia.png", width: 3024, height: 1666 },
-    role: "Developer",
-    timeline: "Nov. 2024",
-    tocDate: "HackTX '24",
-    stack: ["React", "TypeScript", "PostgreSQL", "Tailwind CSS", "Three.js", "MediaPipe", "Supabase"],
-    links: [
-      { label: "Live site", url: "https://www.arcadium.tech/" },
-      { label: "GitHub", url: "https://github.com/ericliu-12/hacktx24" },
-      {
-        label: "Devpost",
-        url: "https://devpost.com/software/arcadia-xgwt0s",
-        note: "Our submission to HackTX 2024.",
-      },
-    ],
-  },
-  {
-    id: "aggieseek",
-    title: "AggieSeek",
-    description:
-      "A modern course discovery platform designed to help Texas A&M students find and explore courses with ease.",
-    image: { src: "/images/aggieseek.png", width: 2000, height: 1400 },
-    role: "Lead Developer, Project Manager",
-    timeline: "Jan. 2024 – Present",
-    tocDate: "2024–",
-    stack: ["React", "TypeScript", "Python", "PostgreSQL", "Tailwind CSS", "Docker", "AWS", "Nginx"],
-    links: [
-      { label: "Live site", url: "https://aggieseek.net" },
-      { label: "GitHub", url: "https://github.com/aggieseek" },
-      {
-        label: "Battalion feature",
-        url: "https://thebatt.com/life-arts/navigating-student-life-made-easy-by-the-aggie-coding-club/",
-        note: "Student spotlight article about AggieSeek.",
-      },
-      {
-        label: "Aggie Coding Club",
-        url: "https://aggiecodingclub.com",
-        note: "The organization where this project was born.",
-      },
-    ],
-  },
+  // {
+  //   id: "arcadia",
+  //   title: "Arcadia",
+  //   description:
+  //     "An online arcade that combines retro aesthetics with the technology of the future. Made for HackTX 2024.",
+  //   image: { src: "/images/arcadia.png", width: 3024, height: 1666 },
+  //   role: "Developer",
+  //   timeline: "Nov. 2024",
+  //   tocDate: "HackTX '24",
+  //   stack: ["React", "TypeScript", "PostgreSQL", "Tailwind CSS", "Three.js", "MediaPipe", "Supabase"],
+  //   links: [
+  //     { label: "Live site", url: "https://www.arcadium.tech/" },
+  //     { label: "GitHub", url: "https://github.com/ericliu-12/hacktx24" },
+  //     {
+  //       label: "Devpost",
+  //       url: "https://devpost.com/software/arcadia-xgwt0s",
+  //       note: "Our submission to HackTX 2024.",
+  //     },
+  //   ],
+  // },
+  
 ];

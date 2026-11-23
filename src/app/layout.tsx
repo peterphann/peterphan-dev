@@ -61,7 +61,7 @@ export default function RootLayout({
               </span>
               <span className="font-mono text-[11px] text-faint">
                 <span className="hidden sm:inline">Seattle, WA · </span>
-                rev. {REVISION} · inpsired by{" "}
+                rev. {REVISION} · inspired by{" "}
                 <a
                   href="https://www.notion.com/a-new-shape-for-work"
                   target="_blank"
