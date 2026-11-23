@@ -3,7 +3,6 @@ import { ReactNode } from "react";
 
 export interface ChapterProps {
   id: string;
-  part: string;
   number: string;
   title: string;
   /** Image path shown in place of the title text; the title becomes its alt text. */
@@ -18,9 +17,10 @@ export interface ChapterProps {
   children: ReactNode;
 }
 
+// A centered opener (number, title, details) over a narrow reading column,
+// with notes in the right margin on wide screens.
 export default function Chapter({
   id,
-  part,
   number,
   title,
   logo,
@@ -32,64 +32,70 @@ export default function Chapter({
   children,
 }: ChapterProps) {
   return (
-    <article
-      id={id}
-      className="grid gap-10 py-12 lg:py-16 xl:grid-cols-[minmax(0,644px)_220px] xl:gap-12"
-    >
-      <div className="flex min-w-0 flex-col gap-5">
-        <p className="font-mono text-xs uppercase tracking-[0.04em] text-muted">
-          {part} — {number}
-        </p>
-        <h2 className="text-4xl font-medium leading-[1.1] tracking-[-0.03em]">
-          {logo ? (
-            <>
-              <Image
-                src={logo}
-                alt={title}
-                width={0}
-                height={0}
-                sizes="160px"
-                className={`h-9 w-auto ${logoDark ? "light-only" : ""}`}
-              />
-              {logoDark && (
+    <article id={id} className="group/chapter py-8 lg:py-10">
+      {/* A section break between chapters; the first one on a page follows
+          the part divider instead. */}
+      <div
+        aria-hidden="true"
+        className="mb-10 group-first-of-type/chapter:hidden lg:mb-12 xl:max-w-[620px]"
+      >
+        <span className="mx-auto block h-px w-12 bg-rule" />
+      </div>
+
+      <div className="grid gap-x-12 xl:grid-cols-[minmax(0,620px)_200px]">
+        <header className="flex min-w-0 flex-col items-center gap-3 text-center">
+          <p className="font-serif text-base italic tabular-nums text-muted">
+            § {number}
+          </p>
+          <h2 className="text-[clamp(28px,3vw,40px)] font-medium leading-[1.1] tracking-[-0.03em]">
+            {logo ? (
+              <>
                 <Image
-                  src={logoDark}
+                  src={logo}
                   alt={title}
                   width={0}
                   height={0}
-                  sizes="160px"
-                  className="dark-only h-9 w-auto"
+                  sizes="240px"
+                  className={`h-10 w-auto ${logoDark ? "light-only" : ""}`}
                 />
-              )}
-            </>
-          ) : (
-            title
+                {logoDark && (
+                  <Image
+                    src={logoDark}
+                    alt={title}
+                    width={0}
+                    height={0}
+                    sizes="240px"
+                    className="dark-only h-10 w-auto"
+                  />
+                )}
+              </>
+            ) : (
+              title
+            )}
+          </h2>
+          {meta && <div className="mt-1 text-sm text-muted">{meta}</div>}
+          {kicker && (
+            <p className="font-mono text-xs uppercase tracking-[0.04em] text-ink">
+              {kicker}
+            </p>
           )}
-        </h2>
-        {meta && <div className="text-sm text-muted">{meta}</div>}
-        {kicker && (
-          <p className="font-mono text-xs uppercase tracking-[0.04em] text-ink">
-            {kicker}
-          </p>
-        )}
-        <div className="mt-3 flex flex-col gap-5 font-serif text-[19px] leading-[1.6]">
+        </header>
+
+        <div className="mt-8 flex min-w-0 flex-col gap-5 font-serif text-lg leading-[1.6] lg:mt-12 xl:col-start-1">
           {children}
         </div>
-      </div>
 
-      {(margin || notes.length > 0) && (
-        <aside className="flex min-w-0 flex-col gap-3.5 font-serif text-sm leading-normal text-ink-soft xl:pt-28">
-          {margin}
-          {notes.map((note, i) => (
-            <div key={i} className="border-t border-rule pt-2.5">
-              <span className="mr-1 font-mono text-[11px] text-ink">
-                {i + 1}.
-              </span>
-              {note}
-            </div>
-          ))}
-        </aside>
-      )}
+        {(margin || notes.length > 0) && (
+          <aside className="mt-8 flex min-w-0 flex-col gap-4 text-[13px] leading-snug text-muted lg:mt-12 xl:col-start-2 xl:row-start-2">
+            {margin}
+            {notes.map((note, i) => (
+              <p key={i}>
+                {i + 1}. {note}
+              </p>
+            ))}
+          </aside>
+        )}
+      </div>
     </article>
   );
 }

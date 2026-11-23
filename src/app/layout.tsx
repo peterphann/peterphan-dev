@@ -34,13 +34,13 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased pb-(--footer-height)">
         <TransitionProvider>
           <SiteHeader />
 
-          <div className="mx-auto grid min-h-[calc(100vh-var(--header-height))] max-w-[1240px] gap-16 px-6 lg:grid-cols-[260px_minmax(0,1fr)]">
+          <div className="mx-auto grid min-h-[calc(100vh-var(--header-height)-var(--footer-height))] max-w-[1240px] gap-16 px-6 lg:grid-cols-[260px_minmax(0,1fr)]">
             <aside className="hidden lg:block">
-              <div className="sticky top-(--header-height) max-h-[calc(100vh-var(--header-height))] overflow-y-auto pb-8 pt-16">
+              <div className="sticky top-(--header-height) max-h-[calc(100vh-var(--header-height)-var(--footer-height))] overflow-y-auto pb-8 pt-16">
                 <TableOfContents parts={parts} />
               </div>
             </aside>
@@ -52,24 +52,27 @@ export default function RootLayout({
             </main>
           </div>
 
-          <footer className="mx-auto mt-16 flex max-w-[1240px] flex-wrap justify-between gap-4 border-t border-rule px-6 pb-12 pt-8 text-[13px] text-muted">
-            <span className="font-serif text-base italic text-ink">
-              Peter Phan
-            </span>
-            <span>College Station, TX · Last revised November 2026</span>
+          {/* Pinned to the bottom of the screen; body padding keeps it from
+              covering the end of the page. */}
+          <footer className="fixed inset-x-0 bottom-0 z-10 border-t border-rule bg-paper pb-[env(safe-area-inset-bottom)]">
+            <div className="mx-auto flex h-(--footer-height) max-w-[1240px] items-center justify-between gap-4 px-6 text-[13px] text-muted">
+              <span className="font-serif text-base text-ink">
+                Peter Phan
+              </span>
+              <span className="font-mono text-[11px] text-faint">
+                <span className="hidden sm:inline">Seattle, WA · </span>
+                rev. {REVISION} · inpsired by{" "}
+                <a
+                  href="https://www.notion.com/a-new-shape-for-work"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline decoration-rule underline-offset-2 hover:text-ink hover:decoration-ink"
+                >
+                  Notion
+                </a>
+              </span>
+            </div>
           </footer>
-
-          <p className="fixed bottom-3 right-4 z-10 rounded bg-paper/80 px-1.5 py-0.5 font-mono text-[11px] text-faint">
-            rev. {REVISION} · based on{" "}
-            <a
-              href="https://www.notion.com/a-new-shape-for-work"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline decoration-rule underline-offset-2 hover:text-ink hover:decoration-ink"
-            >
-              Notion
-            </a>
-          </p>
         </TransitionProvider>
       </body>
     </html>

@@ -26,20 +26,20 @@ export const experiences: Experience[] = [
     logo: "/images/amazon-wordmark.png",
     logoDark: "/images/amazon-wordmark-dark.png",
     roles: [
-      { title: "Software Development Engineer", period: "Incoming Mar 2027" },
-      { title: "Software Development Engineer Intern", period: "Sep – Nov 2026" },
+      // { title: "Software Development Engineer", period: "Incoming Mar. 2027" },
+      { title: "Software Development Engineer Intern", period: "Sep. – Nov. 2026" },
     ],
     location: "Seattle, WA",
     tocDate: "2026–",
     summary: [
-      "Interned on the L7 DDoS Protection team for AWS WAF, and returning full time as a Software Development Engineer in March 2027.",
+      "Intering on the L7 DDoS Protection team for AWS WAF.",
     ],
     stack: [],
   },
   {
     company: "Visa",
     logo: "/images/visa-wordmark.png",
-    roles: [{ title: "Software Engineering Intern", period: "May – Aug 2026" }],
+    roles: [{ title: "Software Engineering Intern", period: "May – Aug. 2026" }],
     location: "Austin, TX",
     tocDate: "2026",
     summary: ["Worked on the Payment Products Development team."],
@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
   {
     company: "State Farm",
     logo: "/images/state-farm-wordmark.png",
-    roles: [{ title: "Software Engineering Intern", period: "May – Aug 2025" }],
+    roles: [{ title: "Software Engineering Intern", period: "May – Aug. 2025" }],
     location: "Bloomington, IL",
     tocDate: "2025",
     summary: [
@@ -62,7 +62,7 @@ export const experiences: Experience[] = [
   // {
   //   company: "AggieSeek",
   //   label: "AggieSeek, founder",
-  //   roles: [{ title: "Founder", period: "Jan 2025 – Present" }],
+  //   roles: [{ title: "Founder", period: "Jan. 2025 – Present" }],
   //   location: "College Station, TX",
   //   tocDate: "2025–",
   //   summary: [
@@ -75,7 +75,7 @@ export const experiences: Experience[] = [
   // },
   // {
   //   company: "ENGR TA Organization",
-  //   roles: [{ title: "Web Developer", period: "Nov 2024 – Present" }],
+  //   roles: [{ title: "Web Developer", period: "Nov. 2024 – Present" }],
   //   location: "College Station, TX",
   //   tocDate: "2024–",
   //   summary: [

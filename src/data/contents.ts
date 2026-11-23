@@ -31,7 +31,7 @@ const entry = (
   href: `/${partId}#${chapterId(number)}`,
 });
 
-export const parts: ContentsPart[] = [
+const allParts: ContentsPart[] = [
   {
     id: "about",
     numeral: "I",
@@ -76,6 +76,15 @@ export const parts: ContentsPart[] = [
     entries: [entry("contact", "6.1", "Email, GitHub, LinkedIn")],
   },
 ];
+
+// A part's first chapter opens its page, so linking to it shows the part
+// heading rather than jumping past it.
+export const parts: ContentsPart[] = allParts.map((part) => ({
+  ...part,
+  entries: part.entries.map((entry, i) =>
+    i === 0 ? { ...entry, href: `/${part.id}` } : entry,
+  ),
+}));
 
 export function getPart(id: string): ContentsPart {
   const part = parts.find((p) => p.id === id);

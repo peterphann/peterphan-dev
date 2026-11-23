@@ -63,7 +63,7 @@ export default function SiteHeader() {
           aria-label="Home"
           className="font-serif text-[22px] italic tracking-[-0.01em]"
         >
-          plp
+          peter phan
         </TransitionLink>
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center">

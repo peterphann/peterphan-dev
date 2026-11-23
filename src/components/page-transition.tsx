@@ -14,7 +14,7 @@ import {
   useState,
 } from "react";
 
-const FADE_MS = 150;
+const FADE_MS = 120;
 
 const TransitionContext = createContext<{
   leaving: boolean;
@@ -42,7 +42,9 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
     // Next's default scrolls the new segment into view, which lands partway
     // down this layout. Start at the top, or at the linked chapter.
     const target = window.location.hash
-      ? document.getElementById(decodeURIComponent(window.location.hash.slice(1)))
+      ? document.getElementById(
+          decodeURIComponent(window.location.hash.slice(1)),
+        )
       : null;
     if (target) target.scrollIntoView({ behavior: "instant" });
     else window.scrollTo({ top: 0, behavior: "instant" });
@@ -60,6 +62,8 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
         go();
         return;
       }
+      // Start loading the next page while the current one fades out.
+      router.prefetch(href);
       setLeaving(true);
       window.clearTimeout(timer.current);
       timer.current = window.setTimeout(go, FADE_MS);
@@ -77,13 +81,23 @@ export function TransitionProvider({ children }: { children: ReactNode }) {
 /** Wraps the part of the page that fades between routes. */
 export function PageFade({ children }: { children: ReactNode }) {
   const { leaving } = useContext(TransitionContext);
+  const pathname = usePathname();
+  // The outer layer only fades the old page out, then snaps back; the inner
+  // one remounts per route so each new page fades in while rising slightly.
   return (
     <div
-      className={`transition-opacity duration-150 motion-reduce:transition-none ${
-        leaving ? "opacity-0" : "opacity-100"
-      }`}
+      className={
+        leaving
+          ? "opacity-0 transition-opacity duration-[120ms] motion-reduce:transition-none"
+          : "opacity-100"
+      }
     >
-      {children}
+      <div
+        key={pathname}
+        className="animate-page-in motion-reduce:animate-none"
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -109,7 +123,14 @@ export function TransitionLink({
       return;
     }
     // Links within the current page just scroll; only route changes fade.
-    if (new URL(href, window.location.href).pathname === window.location.pathname) {
+    const url = new URL(href, window.location.href);
+    if (url.pathname === window.location.pathname) {
+      // A link to the page itself scrolls back up to its heading.
+      if (!url.hash) {
+        event.preventDefault();
+        window.history.replaceState(window.history.state, "", url.pathname);
+        window.scrollTo({ top: 0 });
+      }
       return;
     }
     event.preventDefault();
