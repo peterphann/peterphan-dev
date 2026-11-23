@@ -20,7 +20,12 @@ export default function Projects() {
             id={chapterId(number)}
             number={number}
             title={p.title}
-            meta={`${p.role} · ${p.timeline}`}
+            meta={
+              <span className="flex flex-wrap justify-center gap-x-2.5">
+                <span className="text-ink">{p.role}</span>
+                <span>{p.timeline}</span>
+              </span>
+            }
             kicker={p.award}
             notes={p.links.map((link) => (
               <span key={link.url}>
@@ -45,7 +50,7 @@ export default function Projects() {
               </figcaption>
             </figure>
             <p className="font-sans text-[13px] text-muted">
-              {p.stack.join(" · ")}
+              {p.stack.join(", ")}
             </p>
           </Chapter>
         );

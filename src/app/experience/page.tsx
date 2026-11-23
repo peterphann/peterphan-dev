@@ -24,9 +24,12 @@ export default function Experience() {
               <>
                 <ol className="flex flex-col gap-1">
                   {e.roles.map((role) => (
-                    <li key={role.title + role.period}>
-                      <span className="text-ink">{role.title}</span> ·{" "}
-                      {role.period}
+                    <li
+                      key={role.title + role.period}
+                      className="flex flex-wrap justify-center gap-x-2.5"
+                    >
+                      <span className="text-ink">{role.title}</span>
+                      <span>{role.period}</span>
                     </li>
                   ))}
                 </ol>
@@ -39,7 +42,7 @@ export default function Experience() {
             ))}
             {e.stack.length > 0 && (
               <p className="mt-2 font-sans text-[13px] text-muted">
-                {e.stack.join(" · ")}
+                {e.stack.join(", ")}
               </p>
             )}
           </Chapter>

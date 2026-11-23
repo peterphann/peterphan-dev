@@ -55,7 +55,7 @@ export const projects: Project[] = [
     timeline: "Jan. 2026",
     tocDate: "TAMUhack '26",
     award: "Best Use of Gemini API, TAMUhack 2026",
-    stack: ["Next.js", "MongoDB", "Gemini", "FastAPI", "Auth0", "Vultr"],
+    stack: ["Next.js", "MongoDB", "Gemini", "FastAPI"],
     links: [
       { label: "Live site", url: "https://zephyr-air.tech/" },
       { label: "GitHub", url: "https://github.com/peterphann/zephyr" },
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     timeline: "Jan. 2025",
     tocDate: "TAMUhack '25",
     award: "2nd Place, TAMUhack 2025",
-    stack: ["React", "TypeScript", "PostgreSQL", "Tailwind CSS", "OpenAI", "Google Maps"],
+    stack: ["React", "TypeScript", "PostgreSQL", "Tailwind CSS", "OpenAI API"],
     links: [
       { label: "Live site", url: "https://flockingawesome.tech/" },
       { label: "GitHub", url: "https://github.com/peterphann/tamuhack25" },

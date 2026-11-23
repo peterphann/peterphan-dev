@@ -54,7 +54,8 @@ export default function SiteHeader() {
         <TransitionLink
           href="/"
           aria-label="Home"
-          className="font-serif text-[22px] italic tracking-[-0.01em]"
+          // The header stays mounted across pages, so this plays once per load.
+          className="animate-rise-subtle font-serif text-[22px] italic tracking-[-0.01em] motion-reduce:animate-none"
         >
           peter phan
         </TransitionLink>

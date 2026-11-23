@@ -12,7 +12,7 @@ import { THEME_STORAGE_KEY } from "@/lib/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Peter Phan", template: "%s · Peter Phan" },
+  title: { default: "Peter Phan", template: "%s | Peter Phan" },
   description: "Personal website of Peter Phan",
 };
 
@@ -56,20 +56,21 @@ export default function RootLayout({
               covering the end of the page. */}
           <footer className="fixed inset-x-0 bottom-0 z-10 border-t border-rule bg-paper pb-[env(safe-area-inset-bottom)]">
             <div className="mx-auto flex h-(--footer-height) max-w-[1240px] items-center justify-between gap-4 px-6 text-[13px] text-muted">
-              <span className="font-serif text-base text-ink">
-                Peter Phan
-              </span>
-              <span className="font-mono text-[11px] text-faint">
-                <span className="hidden sm:inline">Seattle, WA · </span>
-                rev. {REVISION} · inspired by{" "}
-                <a
-                  href="https://www.notion.com/a-new-shape-for-work"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline decoration-rule underline-offset-2 hover:text-ink hover:decoration-ink"
-                >
-                  Notion
-                </a>
+              <span className="font-serif text-base text-ink">Peter Phan</span>
+              <span className="flex gap-5 font-mono text-[11px] text-faint">
+                <span className="hidden sm:inline">Houston, TX</span>
+                <span>rev. {REVISION}</span>
+                <span>
+                  inspired by{" "}
+                  <a
+                    href="https://www.notion.com/a-new-shape-for-work"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline decoration-rule underline-offset-2 hover:text-ink hover:decoration-ink"
+                  >
+                    Notion
+                  </a>
+                </span>
               </span>
             </div>
           </footer>
